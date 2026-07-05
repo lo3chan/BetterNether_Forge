@@ -105,6 +105,7 @@ public class NetherStructures {
         }
         REGISTERED = true;
         NetherStructurePieces.ensureStaticLoad();
+        registerStructureToggles();
 
         TagManager.BIOMES.add(CITY_STRUCTURE.biomeTag, BiomeAPI.NETHER_WASTES_BIOME.getBiomeKey());
         if (Configs.GENERATOR.getBoolean("generator.world.cities", "overworld", false)) {
@@ -115,6 +116,23 @@ public class NetherStructures {
             });
         }
 
+    }
+
+    private static void registerStructureToggles() {
+        registerStructureToggle(CITY_STRUCTURE);
+        registerStructureToggle(PYRAMIDS);
+        registerStructureToggle(GHAST_HIVE);
+        registerStructureToggle(SPAWN_ALTAR_LADDER);
+        registerStructureToggle(RESPAWN_POINTS);
+        registerStructureToggle(PILLARS);
+        registerStructureToggle(GARDENS);
+        registerStructureToggle(PORTALS);
+        registerStructureToggle(ALTARS);
+        registerStructureToggle(JUNGLE_TEMPLES);
+    }
+
+    private static void registerStructureToggle(BCLStructure<?> structure) {
+        Configs.STRUCTURES.getBooleanRoot(structure.structureKey.location().getPath(), true);
     }
 
     public static void ensureStaticLoad() {

@@ -6,7 +6,10 @@ import org.betterx.bclib.behaviours.interfaces.BehaviourStone;
 import org.betterx.bclib.behaviours.interfaces.BehaviourWood;
 import org.betterx.betternether.client.IRenderTypeable;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -66,9 +69,21 @@ public class BlockBase extends Block implements IRenderTypeable {
     @Override
     public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
         if (dropItself)
-            return Collections.singletonList(new ItemStack(this.asItem()));
+            return Collections.singletonList(new ItemStack(this));
         else
             return super.getDrops(state, builder);
+    }
+
+    @Override
+    public Item asItem() {
+        Item item = super.asItem();
+        if (item == Items.AIR) {
+            Item byId = BuiltInRegistries.ITEM.get(BuiltInRegistries.BLOCK.getKey(this));
+            if (byId != Items.AIR && BuiltInRegistries.ITEM.getKey(byId) != BuiltInRegistries.ITEM.getDefaultKey()) {
+                return byId;
+            }
+        }
+        return item;
     }
 
     public void setDropItself(boolean drop) {

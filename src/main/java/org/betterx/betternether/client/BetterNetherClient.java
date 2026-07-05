@@ -27,6 +27,7 @@ public class BetterNetherClient {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            ClientOptions.init();
             registerRenderLayers();
             ModLoadingContext.get()
                              .registerExtensionPoint(

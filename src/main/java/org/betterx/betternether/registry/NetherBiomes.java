@@ -5,6 +5,7 @@ import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
 import org.betterx.bclib.interfaces.NumericProvider;
 import org.betterx.betternether.BN;
 import org.betterx.betternether.BetterNether;
+import org.betterx.betternether.config.Configs;
 import org.betterx.betternether.world.NetherBiome;
 import org.betterx.betternether.world.biomes.providers.NetherGrasslandsNumericProvider;
 import org.betterx.betternether.world.biomes.providers.NetherMushroomForestEdgeNumericProvider;
@@ -31,7 +32,37 @@ public class NetherBiomes {
                 NetherStructures.addNonBNBiomeTags(biomeID, biome);
             }
         });
+        registerBiomeToggles();
         registerNumericProviders();
+    }
+
+    private static void registerBiomeToggles() {
+        registerBiomeToggle("bone_reef");
+        registerBiomeToggle("crimson_glowing_woods");
+        registerBiomeToggle("crimson_pinewood");
+        registerBiomeToggle("flooded_deltas");
+        registerBiomeToggle("gravel_desert");
+        registerBiomeToggle("magma_land");
+        registerBiomeToggle("nether_grasslands");
+        registerBiomeToggle("nether_jungle");
+        registerBiomeToggle("nether_mushroom_forest");
+        registerBiomeToggle("nether_mushroom_forest_edge");
+        registerBiomeToggle("nether_swampland");
+        registerBiomeToggle("nether_swampland_terraces");
+        registerBiomeToggle("old_fungiwoods");
+        registerBiomeToggle("old_swampland");
+        registerBiomeToggle("old_warped_woods");
+        registerBiomeToggle("poor_nether_grasslands");
+        registerBiomeToggle("soul_plain");
+        registerBiomeToggle("sulfuric_bone_reef");
+        registerBiomeToggle("upside_down_forest");
+        registerBiomeToggle("upside_down_forest_cleared");
+        registerBiomeToggle("wart_forest");
+        registerBiomeToggle("wart_forest_edge");
+    }
+
+    private static void registerBiomeToggle(String path) {
+        Configs.BIOMES.getBoolean(BetterNether.MOD_ID + "." + path, "enabled", true);
     }
 
     private static void registerNumericProviders() {

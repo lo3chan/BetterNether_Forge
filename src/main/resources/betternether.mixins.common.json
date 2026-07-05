@@ -28,7 +28,8 @@
     "PortalShapeMixin",
     "RecipeManagerAccessor",
     "RecipeManagerMixin",
-    "SmithingTransformRecipeMixin"
+    "SmithingTransformRecipeMixin",
+    "StructureMixin"
   ],
   "injectors": {
     "defaultRequire": 1

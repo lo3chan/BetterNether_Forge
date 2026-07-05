@@ -1,5 +1,6 @@
 package org.betterx.betternether.blocks;
 
+import org.betterx.bclib.api.v3.datagen.DropSelfLootProvider;
 import org.betterx.bclib.behaviours.BehaviourBuilders;
 import org.betterx.bclib.behaviours.interfaces.BehaviourCompostable;
 import org.betterx.bclib.interfaces.tools.AddMineableAxe;
@@ -9,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -23,7 +25,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BlockWillowTorch extends BlockBaseNotFull implements AddMineableAxe, BehaviourCompostable {
+public class BlockWillowTorch extends BlockBaseNotFull implements AddMineableAxe, BehaviourCompostable, DropSelfLootProvider<BlockWillowTorch> {
     private static final VoxelShape SHAPE_NORTH = Block.box(5, 0, 8, 11, 16, 16);
     private static final VoxelShape SHAPE_SOUTH = Block.box(5, 0, 0, 11, 16, 8);
     private static final VoxelShape SHAPE_WEST = Block.box(8, 0, 5, 16, 16, 11);
@@ -92,10 +94,13 @@ public class BlockWillowTorch extends BlockBaseNotFull implements AddMineableAxe
             BlockPos pos,
             BlockPos neighborPos
     ) {
-        if (canSurvive(state, world, pos))
+        if (canSurvive(state, world, pos)) {
             return state;
-        else
-            return Blocks.AIR.defaultBlockState();
+        }
+        if (world instanceof Level level && !level.isClientSide) {
+            level.destroyBlock(pos, true);
+        }
+        return Blocks.AIR.defaultBlockState();
     }
 
     @Override

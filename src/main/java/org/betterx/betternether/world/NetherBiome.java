@@ -2,6 +2,7 @@ package org.betterx.betternether.world;
 
 import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiome;
 import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeSettings;
+import org.betterx.betternether.config.Configs;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -53,5 +54,10 @@ public class NetherBiome extends BCLBiome {
 
     protected NetherBiome(ResourceKey<Biome> biomeID, BCLBiomeSettings settings) {
         super(biomeID, settings);
+    }
+
+    @Override
+    public boolean isPickable() {
+        return Configs.BIOMES.getBoolean(configGroup(), "enabled", true);
     }
 }

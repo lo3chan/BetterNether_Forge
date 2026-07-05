@@ -1,5 +1,8 @@
 package org.betterx.betternether.mixin.client;
 
+import org.betterx.betternether.client.ClientOptions;
+
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.Music;
 import net.minecraft.world.level.Level;
 import net.minecraft.client.Minecraft;
@@ -42,7 +45,16 @@ public class MusicTrackerMixin {
 
     @Unique
     private boolean bn_shouldChangeMusic(Music toMusic) {
-        return currentMusic == null || !toMusic.getEvent().value().getLocation().equals(currentMusic.getLocation());
+        ResourceLocation currentMusicLocation = bn_getCurrentMusicLocation();
+        return currentMusicLocation == null || !toMusic.getEvent().value().getLocation().equals(currentMusicLocation);
+    }
+
+    @Unique
+    private ResourceLocation bn_getCurrentMusicLocation() {
+        if (currentMusic instanceof AbstractSoundInstanceAccessor accessor) {
+            return accessor.getLocation();
+        }
+        return null;
     }
 
     @Inject(method = "startPlaying", at = @At("TAIL"))
@@ -52,7 +64,7 @@ public class MusicTrackerMixin {
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     public void bn_onTick(CallbackInfo ci) {
-        if (!bn_isCorrectDimension()) {
+        if (!ClientOptions.blendBiomeMusic() || !bn_isCorrectDimension()) {
             bn_waitChange = false;
             bn_volume = 1.0f;
             return;
@@ -82,7 +94,7 @@ public class MusicTrackerMixin {
                     accessor.setVolume(0.0f);
                     minecraft.getSoundManager().updateSourceVolume(
                             currentMusic.getSource(),
-                            currentMusic.getVolume()
+                            0.0f
                     );
                 }
             }
@@ -116,7 +128,7 @@ public class MusicTrackerMixin {
                     accessor.setVolume(0.0f);
                     minecraft.getSoundManager().updateSourceVolume(
                             currentMusic.getSource(),
-                            currentMusic.getVolume()
+                            0.0f
                     );
                 }
             }
@@ -130,7 +142,7 @@ public class MusicTrackerMixin {
             bn_volume = Mth.clamp(bn_volume, 0.0f, 1.0f);
             if (currentMusic instanceof AbstractSoundInstanceAccessor accessor) {
                 accessor.setVolume(bn_volume);
-                minecraft.getSoundManager().updateSourceVolume(currentMusic.getSource(), currentMusic.getVolume());
+                minecraft.getSoundManager().updateSourceVolume(currentMusic.getSource(), bn_volume);
             }
         }
 

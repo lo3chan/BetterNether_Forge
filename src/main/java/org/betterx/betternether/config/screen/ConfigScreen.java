@@ -1,6 +1,7 @@
 package org.betterx.betternether.config.screen;
 
 import org.betterx.betternether.BetterNether;
+import org.betterx.betternether.client.ClientOptions;
 import org.betterx.betternether.config.Config;
 import org.betterx.betternether.config.Configs;
 
@@ -31,6 +32,7 @@ public class ConfigScreen extends Screen {
                     @Override
                     public void onPress(Button button) {
                         Config.save();
+                        Configs.CLIENT_CONFIG.saveChanges();
                         ConfigScreen.this.minecraft.setScreen(parrent);
                     }
                 }
@@ -181,6 +183,44 @@ public class ConfigScreen extends Screen {
                     }
                 }
         ).bounds(this.width / 2 + 40 + 20, 27 * 3, 40, 20).build());
+
+        // Biome Music //
+        final String varBlendBiomeMusic = "blendBiomeMusic";
+        boolean hasBlendBiomeMusic = Configs.CLIENT_CONFIG.getBooleanRoot(varBlendBiomeMusic, true);
+
+        AbstractWidget biomeMusicButton = Button.builder(
+                Component.translatable("config.betternether.blend_biome_music"),
+                new OnPress() {
+                    @Override
+                    public void onPress(Button button) {
+                        boolean value = !Configs.CLIENT_CONFIG.getBooleanRoot(varBlendBiomeMusic, true);
+                        Configs.CLIENT_CONFIG.setBooleanRoot(varBlendBiomeMusic, value);
+                        ClientOptions.setBlendBiomeMusic(value);
+                        String color = value ? ": \u00A7a" : ": \u00A7c";
+                        button.setMessage(Component.translatable("config.betternether.blend_biome_music")
+                                                   .append(color + CommonComponents.optionStatus(value).getString()));
+                    }
+                }
+        ).bounds(this.width / 2 - 100, 27 * 4, 150, 20).build();
+        color = hasBlendBiomeMusic ? ": \u00A7a" : ": \u00A7c";
+        biomeMusicButton.setMessage(Component.translatable("config.betternether.blend_biome_music")
+                                             .append(color + CommonComponents.optionStatus(hasBlendBiomeMusic)
+                                                                             .getString()));
+        this.addRenderableWidget(biomeMusicButton);
+
+        this.addRenderableWidget(Button.builder(
+                Component.translatable("config.betternether.reset"),
+                new OnPress() {
+                    @Override
+                    public void onPress(Button button) {
+                        Configs.CLIENT_CONFIG.setBooleanRoot(varBlendBiomeMusic, true);
+                        ClientOptions.setBlendBiomeMusic(true);
+                        biomeMusicButton.setMessage(Component.translatable("config.betternether.blend_biome_music")
+                                                             .append(": \u00A7a" + CommonComponents.optionStatus(true)
+                                                                                                   .getString()));
+                    }
+                }
+        ).bounds(this.width / 2 + 40 + 20, 27 * 4, 40, 20).build());
     }
 
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
