@@ -343,6 +343,14 @@ public class NetherFeatures {
         NetherObjectsPlaced.ensureStaticInitialization();
         NetherTerrain.ensureStaticInitialization();
         NetherTerrainPlaced.ensureStaticInitialization();
+        Configs.registerFeatureConfigEntries(
+                NetherFeatures.class,
+                NetherVegetationPlaced.class,
+                NetherVinesPlaced.class,
+                NetherTreesPlaced.class,
+                NetherObjectsPlaced.class,
+                NetherTerrainPlaced.class
+        );
         LifeCycleAPI.onLevelLoad(NetherFeatures::onWorldLoad);
 
     }

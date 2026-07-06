@@ -14,14 +14,15 @@ import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.MapColor.Brightness;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
+import net.minecraft.core.Direction;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.LinkedHashMultiset;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Multisets;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -32,9 +33,11 @@ public abstract class MapMixin extends ComplexItem {
         super(settings);
     }
 
-    @Shadow
     private BlockState getCorrectStateForFluidBlock(Level world, BlockState state, BlockPos pos) {
-        return state;
+        FluidState fluidState = state.getFluidState();
+        return !fluidState.isEmpty() && !state.isFaceSturdy(world, pos, Direction.UP)
+                ? fluidState.createLegacyBlock()
+                : state;
     }
 
     @Inject(method = "update", at = @At(value = "HEAD"), cancellable = true)
