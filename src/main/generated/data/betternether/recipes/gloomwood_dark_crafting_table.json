@@ -1,0 +1,17 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "group":  "crafting_table",
+    "key":  {
+                "#":  {
+                          "item":  "betternether:gloomwood_dark_planks"
+                      }
+            },
+    "pattern":  [
+                    "##",
+                    "##"
+                ],
+    "result":  {
+                   "item":  "betternether:gloomwood_dark_crafting_table"
+               }
+}

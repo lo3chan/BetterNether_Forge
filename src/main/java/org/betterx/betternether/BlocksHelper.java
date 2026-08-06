@@ -1,6 +1,7 @@
 package org.betterx.betternether;
 
 import org.betterx.betternether.blocks.BlockFarmland;
+import org.betterx.betternether.registry.NetherBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -89,6 +90,14 @@ public class BlocksHelper {
     public static boolean isNetherGround(BlockState state) {
         return state.is(org.betterx.worlds.together.tag.v3.CommonBlockTags.NETHER_STONES) || isSoulSand(state) || isNetherMycelium(
                 state) || isNylium(state);
+    }
+
+    public static boolean isSculkLike(BlockState state) {
+        return state.is(Blocks.SCULK)
+                || state.is(Blocks.SCULK_VEIN)
+                || state.is(NetherBlocks.BLEACHED_GLOOMSCULK)
+                || state.is(NetherBlocks.MOLTEN_GLOOMSCULK)
+                || state.is(NetherBlocks.VEINED_GLOOMSCULK);
     }
 
     public static boolean isNetherGroundMagma(BlockState state) {

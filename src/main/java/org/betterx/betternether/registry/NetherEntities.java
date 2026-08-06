@@ -2,7 +2,6 @@ package org.betterx.betternether.registry;
 
 import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
 import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
-import org.betterx.bclib.api.v2.spawning.SpawnRuleBuilder;
 import org.betterx.bclib.entity.BCLEntityWrapper;
 import org.betterx.bclib.interfaces.SpawnRule;
 import org.betterx.betternether.BetterNether;
@@ -15,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.EntityType.EntityFactory;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -23,8 +23,11 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
+import net.minecraft.world.phys.AABB;
 
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent.Operation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -132,8 +135,6 @@ public class NetherEntities {
     private static final List<BCLEntityWrapper<?>> NETHER_ENTITIES = Lists.newArrayList();
 
     private static boolean spawnEggsRegistered;
-    private static boolean spawnRulesRegistered;
-
     public static EntityType<EntityNagaProjectile> NAGA_PROJECTILE;
 
     public static BCLEntityWrapper<EntityFirefly> FIREFLY;
@@ -246,58 +247,80 @@ public class NetherEntities {
             true
     );
 
-
-    public static void register() {
-        setupSpawnRules();
+    private static boolean belowMaxHeight(LevelAccessor world, BlockPos pos) {
+        return pos.getY() < world.dimensionType().logicalHeight();
     }
 
-    private static void setupSpawnRules() {
-        if (spawnRulesRegistered) {
-            return;
-        }
-        if (FIREFLY == null || HYDROGEN_JELLYFISH == null || NAGA == null || FLYING_PIG == null || JUNGLE_SKELETON == null || SKULL == null) {
-            return;
-        }
-        SpawnRuleBuilder
-                .start(FIREFLY)
-                .belowMaxHeight()
-                .customRule(RULE_FLOAT_NOT_ABOVE_LAVA)
-                .maxNearby(32, 64)
-                .buildNoRestrictions(Types.MOTION_BLOCKING_NO_LEAVES);
+    private static boolean maxNearby(
+            EntityType<?> entityType,
+            LevelAccessor world,
+            BlockPos pos,
+            int count,
+        int radius
+    ) {
+        AABB box = new AABB(pos).inflate(radius, world.getHeight(), radius);
+        return world.getEntitiesOfClass(
+                Entity.class,
+                box,
+                entity -> entity.getType() == entityType
+        ).size() < count;
+    }
 
-        SpawnRuleBuilder
-                .start(HYDROGEN_JELLYFISH)
-                .belowMaxHeight()
-                .maxNearby(24, 64)
-                .buildNoRestrictions(Types.MOTION_BLOCKING);
-
-        SpawnRuleBuilder
-                .start(NAGA)
-                .hostile(8)
-                .maxNearby(32, 64)
-                .buildOnGround(Types.MOTION_BLOCKING_NO_LEAVES);
-
-        SpawnRuleBuilder
-                .start(FLYING_PIG)
-                .belowMaxHeight()
-                .customRule(RULE_FLOAT_NOT_ABOVE_LAVA)
-                .maxNearby(16, 64)
-                .buildNoRestrictions(Types.MOTION_BLOCKING);
-
-        SpawnRuleBuilder
-                .start(JUNGLE_SKELETON)
-                .notPeaceful()
-                .maxNearby(16, 64)
-                .buildOnGround(Types.MOTION_BLOCKING_NO_LEAVES);
-
-        SpawnRuleBuilder
-                .start(SKULL)
-                .belowMaxHeight()
-                .vanillaHostile()
-                .maxNearby(16, 64)
-                .buildNoRestrictions(Types.MOTION_BLOCKING);
-
-        spawnRulesRegistered = true;
+    @SubscribeEvent
+    public static void onRegisterSpawnPlacements(SpawnPlacementRegisterEvent event) {
+        event.register(
+                FIREFLY.type(),
+                SpawnPlacements.Type.NO_RESTRICTIONS,
+                Types.MOTION_BLOCKING_NO_LEAVES,
+                (type, world, reason, pos, random) -> belowMaxHeight(world, pos)
+                        && RULE_FLOAT_NOT_ABOVE_LAVA.canSpawn(type, world, reason, pos, random)
+                        && maxNearby(type, world, pos, 32, 64),
+                Operation.REPLACE
+        );
+        event.register(
+                HYDROGEN_JELLYFISH.type(),
+                SpawnPlacements.Type.NO_RESTRICTIONS,
+                Types.MOTION_BLOCKING,
+                (type, world, reason, pos, random) -> belowMaxHeight(world, pos)
+                        && maxNearby(type, world, pos, 24, 64),
+                Operation.REPLACE
+        );
+        event.register(
+                NAGA.type(),
+                SpawnPlacements.Type.ON_GROUND,
+                Types.MOTION_BLOCKING_NO_LEAVES,
+                (type, world, reason, pos, random) -> world.getDifficulty() != Difficulty.PEACEFUL
+                        && world.getMaxLocalRawBrightness(pos) <= 8
+                        && maxNearby(type, world, pos, 32, 64),
+                Operation.REPLACE
+        );
+        event.register(
+                FLYING_PIG.type(),
+                SpawnPlacements.Type.NO_RESTRICTIONS,
+                Types.MOTION_BLOCKING,
+                (type, world, reason, pos, random) -> belowMaxHeight(world, pos)
+                        && RULE_FLOAT_NOT_ABOVE_LAVA.canSpawn(type, world, reason, pos, random)
+                        && maxNearby(type, world, pos, 16, 64),
+                Operation.REPLACE
+        );
+        event.register(
+                JUNGLE_SKELETON.type(),
+                SpawnPlacements.Type.ON_GROUND,
+                Types.MOTION_BLOCKING_NO_LEAVES,
+                (type, world, reason, pos, random) -> world.getDifficulty() != Difficulty.PEACEFUL
+                        && maxNearby(type, world, pos, 16, 64),
+                Operation.REPLACE
+        );
+        event.register(
+                SKULL.type(),
+                SpawnPlacements.Type.NO_RESTRICTIONS,
+                Types.MOTION_BLOCKING,
+                (type, world, reason, pos, random) -> belowMaxHeight(world, pos)
+                        && world.getDifficulty() != Difficulty.PEACEFUL
+                        && world.getMaxLocalRawBrightness(pos) <= 7
+                        && maxNearby(type, world, pos, 16, 64),
+                Operation.REPLACE
+        );
     }
 
     public static void registerEntity(String name, EntityType<? extends LivingEntity> entity) {
@@ -399,7 +422,6 @@ public class NetherEntities {
             KnownSpawnTypes.FLYING_PIG.setWrapper(FLYING_PIG);
             KnownSpawnTypes.JUNGLE_SKELETON.setWrapper(JUNGLE_SKELETON);
 
-            setupSpawnRules();
         });
     }
 

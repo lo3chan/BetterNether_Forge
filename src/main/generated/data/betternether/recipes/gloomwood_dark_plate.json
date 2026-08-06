@@ -1,0 +1,16 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "redstone",
+    "group":  "pressure_plate",
+    "key":  {
+                "#":  {
+                          "item":  "betternether:gloomwood_dark_planks"
+                      }
+            },
+    "pattern":  [
+                    "##"
+                ],
+    "result":  {
+                   "item":  "betternether:gloomwood_dark_plate"
+               }
+}

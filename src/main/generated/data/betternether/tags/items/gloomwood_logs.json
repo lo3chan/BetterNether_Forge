@@ -1,0 +1,9 @@
+{
+    "replace":  false,
+    "values":  [
+                   "betternether:gloomwood_bark",
+                   "betternether:gloomwood_log",
+                   "betternether:gloomwood_stripped_bark",
+                   "betternether:gloomwood_stripped_log"
+               ]
+}

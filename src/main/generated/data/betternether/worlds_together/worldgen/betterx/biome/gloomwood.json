@@ -1,0 +1,21 @@
+{
+    "type":  "betternether:biome",
+    "biome":  "betternether:gloomwood",
+    "edgeSize":  0,
+    "fogDensity":  1,
+    "genChance":  0.3,
+    "intended_for":  "BCL_NETHER",
+    "parameter_points":  [
+                             {
+                                 "continentalness":  0,
+                                 "depth":  0,
+                                 "erosion":  0,
+                                 "humidity":  -0.35,
+                                 "offset":  0,
+                                 "temperature":  -0.25,
+                                 "weirdness":  0
+                             }
+                         ],
+    "terrainHeight":  0.1,
+    "vertical":  false
+}

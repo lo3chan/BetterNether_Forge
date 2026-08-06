@@ -33,8 +33,6 @@ public class BetterNether {
     public static final Logger LOGGER = new Logger(MOD_ID);
     private static boolean thinArmor = true;
     private static boolean lavafallParticles = true;
-    private static float fogStart = 0.05F;
-    private static float fogEnd = 0.5F;
 
     public BetterNether() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -61,7 +59,7 @@ public class BetterNether {
         //MigrationProfile.fixCustomFolder(new File("/Users/frank/Entwicklung/BetterNether/src/main/resources/data/betternether/structures/lava"));
         initOptions();
         SoundsRegistry.ensureStaticallyLoaded();
-        NetherEntities.register();
+        NetherGameRules.ensureStaticallyLoaded();
         BNWorldGenerator.onModInit();
         NetherStructures.register();
         NetherBiomes.register();
@@ -125,8 +123,6 @@ public class BetterNether {
     private void initOptions() {
         thinArmor = Configs.MAIN.getBoolean("improvement", "smaller_armor_offset", true);
         lavafallParticles = Configs.MAIN.getBoolean("improvement", "lavafall_particles", true);
-        float density = Configs.MAIN.getFloat("improvement", "fog_density[vanilla: 1.0]", 0.75F);
-        changeFogDensity(density);
     }
 
     public static boolean hasThinArmor() {
@@ -139,19 +135,6 @@ public class BetterNether {
 
     public static boolean hasLavafallParticles() {
         return lavafallParticles;
-    }
-
-    public static void changeFogDensity(float density) {
-        fogStart = -0.45F * density + 0.5F;
-        fogEnd = -0.5F * density + 1;
-    }
-
-    public static float getFogStart() {
-        return fogStart;
-    }
-
-    public static float getFogEnd() {
-        return fogEnd;
     }
 
     public static ResourceLocation makeID(String path) {

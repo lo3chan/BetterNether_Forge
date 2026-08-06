@@ -1,0 +1,20 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "group":  "taburet",
+    "key":  {
+                "#":  {
+                          "item":  "betternether:gloomwood_slab"
+                      },
+                "I":  {
+                          "item":  "minecraft:stick"
+                      }
+            },
+    "pattern":  [
+                    "##",
+                    "II"
+                ],
+    "result":  {
+                   "item":  "betternether:gloomwood_taburet"
+               }
+}

@@ -45,6 +45,10 @@ public class NetherTrees {
             .start(BN.id("tree_rubeus"), org.betterx.betternether.registry.NetherFeatures.RUBEUS_TREE)
             .configuration(NaturalTreeConfiguration.natural())
             .build();
+    public static final BCLConfigureFeature<GloomwoodTreeFeature, NaturalTreeConfiguration> GLOOMWOOD_TREE = BCLFeatureBuilder
+            .start(BN.id("tree_gloomwood"), org.betterx.betternether.registry.NetherFeatures.GLOOMWOOD_TREE)
+            .configuration(NaturalTreeConfiguration.natural())
+            .build();
 
     public static final BCLConfigureFeature<MushroomFirFeature, NoneFeatureConfiguration> MUSHROOM_FIR = BCLFeatureBuilder
             .start(BN.id("tree_mushroom_fir"), org.betterx.betternether.registry.NetherFeatures.MUSHROOM_FIR)

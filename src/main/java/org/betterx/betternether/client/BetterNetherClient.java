@@ -4,6 +4,7 @@ import org.betterx.betternether.BetterNether;
 import org.betterx.betternether.blocks.BNRenderLayer;
 import org.betterx.betternether.config.screen.ConfigScreen;
 import org.betterx.betternether.registry.NetherParticles;
+import org.betterx.betternether.registry.NetherBlocks;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -56,5 +57,8 @@ public class BetterNetherClient {
                     ItemBlockRenderTypes.setRenderLayer(block, translucent);
             }
         });
+        ItemBlockRenderTypes.setRenderLayer(NetherBlocks.GLOOMSCULK_GEODE, translucent);
+        ItemBlockRenderTypes.setRenderLayer(NetherBlocks.GLOOMSCULK_LAMP, translucent);
+        ItemBlockRenderTypes.setRenderLayer(NetherBlocks.MAT_GLOOMWOOD.getSapling(), cutout);
     }
 }

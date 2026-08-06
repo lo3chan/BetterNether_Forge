@@ -5,8 +5,6 @@ import org.betterx.betternether.client.ClientOptions;
 import org.betterx.betternether.config.Config;
 import org.betterx.betternether.config.Configs;
 
-import com.mojang.serialization.Codec;
-import net.minecraft.client.OptionInstance;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
@@ -41,63 +39,6 @@ public class ConfigScreen extends Screen {
         header = Component.translatable("\u00A7b* ")
                           .append(Component.translatable("config.betternether.mod_reload").getString());
 
-        // Fog //
-        final String varFog = "fog_density[vanilla: 1.0]";
-        final float fogDefault = 0.75F;
-
-        AbstractWidget fogButton = new OptionInstance<Double>(
-                "fog",
-                OptionInstance.noTooltip(),
-                (gameOptions, value) -> {
-                    float val = value.floatValue();
-                    Configs.MAIN.setFloat("improvement", varFog, val);
-                    BetterNether.changeFogDensity(val);
-                    return gameOptions;
-                },
-                new OptionInstance.IntRange(
-                        0,
-                        10
-                ).xmap(
-                        i -> (double) i / 10.0,
-                        double_ -> (int) (double_ * 10.0)
-                ),
-                Codec.doubleRange(0.0, 1.0),
-                0.05,
-                (gameOptions) -> Configs.MAIN.getFloat(
-                        "improvement",
-                        varFog,
-                        fogDefault
-                )
-        ).createButton(this.minecraft.options, this.width / 2 - 100, 27, 150);
-//		AbstractWidget fogButton = new ProgressOption("fog", 0.0, 1.0, 0.05F,
-//				(gameOptions) -> {
-//					return (double) Configs.MAIN.getFloat("improvement", varFog, fogDefault);
-//				},
-//				(gameOptions, value) -> {
-//					float val = value.floatValue();
-//					Configs.MAIN.setFloat("improvement", varFog, val);
-//					BetterNether.changeFogDensity(val);
-//				},
-//				(gameOptions, doubleOption) -> {
-//					double val = doubleOption.get(gameOptions);
-//					String color = Math.abs(val - fogDefault) < 0.001 ? "" : "\u00A7b";
-//					return Component.translatable("config.betternether.fog").append(String.format(": %s%.2f", color, val));
-//				}).createButton(this.minecraft.options, this.width / 2 - 100, 27, 150);
-        this.addRenderableWidget(fogButton);
-
-        this.addRenderableWidget(Button.builder(Component.translatable("config.betternether.reset"), new OnPress() {
-                    @Override
-                    public void onPress(Button button) {
-                        Configs.MAIN.setFloat("improvement", varFog, fogDefault);
-                        BetterNether.changeFogDensity(fogDefault);
-                        fogButton.onClick(
-                                fogButton.getWidth() * fogDefault + fogButton.getX(),
-                                fogButton.getY()
-                        );
-                    }
-                }
-        ).bounds(this.width / 2 + 40 + 20, 27, 40, 20).build());
-
         // Thin Armor //
         final String varArmour = "smaller_armor_offset";
         boolean hasArmour = Configs.MAIN.getBoolean("improvement", varArmour, true);
@@ -120,7 +61,7 @@ public class ConfigScreen extends Screen {
                                                            value).getString()));
                     }
                 }
-        ).bounds(this.width / 2 - 100, 27 * 2, 150, 20).build();
+        ).bounds(this.width / 2 - 100, 27, 150, 20).build();
         String color = hasArmour ? ": \u00A7a" : ": \u00A7c";
         armorButton.setMessage(Component.translatable("config.betternether.armour")
                                         .append(color + CommonComponents.optionStatus(hasArmour).getString()));
@@ -139,7 +80,7 @@ public class ConfigScreen extends Screen {
                                                                 true).getString()));
                     }
                 }
-        ).bounds(this.width / 2 + 40 + 20, 27 * 2, 40, 20).build());
+        ).bounds(this.width / 2 + 40 + 20, 27, 40, 20).build());
 
         // Lavafalls //
         final String varLava = "lavafall_particles";
@@ -163,7 +104,7 @@ public class ConfigScreen extends Screen {
                                                            value).getString()));
                     }
                 }
-        ).bounds(this.width / 2 - 100, 27 * 3, 150, 20).build();
+        ).bounds(this.width / 2 - 100, 27 * 2, 150, 20).build();
         color = hasLava ? ": \u00A7a" : ": \u00A7c";
         lavaButton.setMessage(Component.translatable("config.betternether.lavafalls")
                                        .append(color + CommonComponents.optionStatus(hasLava).getString()));
@@ -182,7 +123,7 @@ public class ConfigScreen extends Screen {
                                                                true).getString()));
                     }
                 }
-        ).bounds(this.width / 2 + 40 + 20, 27 * 3, 40, 20).build());
+        ).bounds(this.width / 2 + 40 + 20, 27 * 2, 40, 20).build());
 
         // Biome Music //
         final String varBlendBiomeMusic = "blendBiomeMusic";
@@ -201,7 +142,7 @@ public class ConfigScreen extends Screen {
                                                    .append(color + CommonComponents.optionStatus(value).getString()));
                     }
                 }
-        ).bounds(this.width / 2 - 100, 27 * 4, 150, 20).build();
+        ).bounds(this.width / 2 - 100, 27 * 3, 150, 20).build();
         color = hasBlendBiomeMusic ? ": \u00A7a" : ": \u00A7c";
         biomeMusicButton.setMessage(Component.translatable("config.betternether.blend_biome_music")
                                              .append(color + CommonComponents.optionStatus(hasBlendBiomeMusic)
@@ -220,7 +161,7 @@ public class ConfigScreen extends Screen {
                                                                                                    .getString()));
                     }
                 }
-        ).bounds(this.width / 2 + 40 + 20, 27 * 4, 40, 20).build());
+        ).bounds(this.width / 2 + 40 + 20, 27 * 3, 40, 20).build());
     }
 
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {

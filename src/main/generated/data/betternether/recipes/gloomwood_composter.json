@@ -1,0 +1,18 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "group":  "composter",
+    "key":  {
+                "#":  {
+                          "item":  "betternether:gloomwood_slab"
+                      }
+            },
+    "pattern":  [
+                    "# #",
+                    "# #",
+                    "###"
+                ],
+    "result":  {
+                   "item":  "betternether:gloomwood_composter"
+               }
+}

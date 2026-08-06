@@ -39,9 +39,13 @@ public class BlockTerrain extends BlockBase implements TagProvider, BonemealNyli
     );
 
     public BlockTerrain() {
-        super(BlockBehaviour.Properties.copy(Blocks.NETHERRACK)
-                                       .sound(TERRAIN_SOUND)
-                                       .requiresCorrectToolForDrops());
+        this(BlockBehaviour.Properties.copy(Blocks.NETHERRACK)
+                                      .sound(TERRAIN_SOUND)
+                                      .requiresCorrectToolForDrops());
+    }
+
+    public BlockTerrain(BlockBehaviour.Properties properties) {
+        super(properties);
         this.setDropItself(false);
     }
 

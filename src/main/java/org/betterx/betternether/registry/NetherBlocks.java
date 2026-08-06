@@ -31,6 +31,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
@@ -54,6 +55,34 @@ public class NetherBlocks extends BlockRegistry {
             "willow_leaves",
             new BlockWillowLeaves(MAT_WILLOW.getSapling())
     );
+
+    // Gloomwood //
+    public static final GloomwoodMaterial MAT_GLOOMWOOD = new GloomwoodMaterial().init();
+    public static final GloomwoodDarkMaterial MAT_GLOOMWOOD_DARK = new GloomwoodDarkMaterial().init();
+    public static final Block GLOOMWOOD_TRANSITION_STRIPPED_LOG = registerBlock("gloomwood_transition_stripped_log", new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_STEM)));
+    public static final Block GLOOMWOOD_TRANSITION_LOG = registerBlock("gloomwood_transition_log", new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_STEM)));
+    public static final Block GLOOMWOOD_TRANSITION_PLANKS = registerBlock("gloomwood_transition_planks", new Block(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)));
+    public static final Block GLOOMWOOD_DARK_MOLTEN_LOG = registerBlock("gloomwood_dark_molten_log", new BlockMoltenGloomwoodLog(BlockBehaviour.Properties.copy(Blocks.WARPED_STEM).lightLevel(state -> 7)));
+    public static final Block GLOOMWOOD_LEAVES = registerBlock("gloomwood_leaves", new BNLeaves(MAT_GLOOMWOOD.getSapling(), MapColor.COLOR_LIGHT_GRAY));
+    public static final Block GLOOMWOOD_BLEACHED_LEAVES = registerBlock("gloomwood_bleached_leaves", new BNLeaves(MAT_GLOOMWOOD.getSapling(), MapColor.TERRACOTTA_WHITE));
+    public static final Block BLEACHED_GLOOMSCULK = registerBlock("bleached_gloomsculk", new BlockTerrain(BlockBehaviour.Properties.copy(Blocks.SCULK)));
+    public static final Block MOLTEN_GLOOMSCULK = registerBlock("molten_gloomsculk", new BlockMoltenGloomsculk(BlockBehaviour.Properties.copy(Blocks.SCULK).lightLevel(state -> 5)));
+    public static final Block VEINED_GLOOMSCULK = registerBlock("veined_gloomsculk", new BlockTerrain(BlockBehaviour.Properties.copy(Blocks.NETHERRACK)));
+    public static final Block GLOOMSCULK_GEODE = registerBlock("gloomsculk_geode", new BlockGloomsculkGeode(BlockBehaviour.Properties.copy(Blocks.SCULK).lightLevel(state -> 10).noOcclusion()));
+    public static final Block GLOOMSCULK_GEODE_CRYSTAL = registerBlock("gloomsculk_geode_crystal", new BlockGloomsculkCrystal(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).lightLevel(state -> 8).noOcclusion()));
+    public static final Block GLOOMSCULK_LAMP = registerBlock("gloomsculk_lamp", new Block(BlockBehaviour.Properties.copy(Blocks.SCULK).lightLevel(state -> 15).noOcclusion()));
+    public static final Block GLOOMSCULK_CRYSTAL = registerBlock("gloomsculk_crystal", new BlockGloomsculkCrystal(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).lightLevel(state -> 6).noOcclusion()));
+    public static final Block PALE_GLOOMGRASS = registerBlock("pale_gloomgrass", new BlockNetherGrass());
+    public static final Block GLOOMGRASS = registerBlock("gloomgrass", new BlockNetherGrass());
+    public static final Block GLOOMSCULK_VINE = registerBlock("gloomsculk_vine", new BlockBlackVine());
+    public static final Block GLOOMWISP_VINE = registerBlock("gloomwisp_vine", new BlockGloomwispVine(BlockBehaviour.Properties.copy(Blocks.WARPED_ROOTS).lightLevel(state -> 5).randomTicks()));
+    private static final boolean GLOOMSCULK_FUELS_REGISTERED = registerGloomsculkFuels();
+
+    private static boolean registerGloomsculkFuels() {
+        FuelRegistry.INSTANCE.add(GLOOMSCULK_CRYSTAL, 200);
+        FuelRegistry.INSTANCE.add(GLOOMSCULK_GEODE_CRYSTAL, 200);
+        return true;
+    }
 
     // Wart //
     public static final WartMaterial MAT_WART = new WartMaterial(

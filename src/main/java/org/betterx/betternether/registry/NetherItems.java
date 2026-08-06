@@ -51,6 +51,24 @@ public class NetherItems extends ItemRegistry {
     private static final ArrayList<Item> MOD_ITEMS = new ArrayList<Item>();
 
     public static final Item BLACK_APPLE = registerItem("black_apple", new ItemBlackApple());
+    public static final Item MUSIC_DISC_GLOOM_WOODS = getItemRegistry().registerDisc(
+            BetterNether.makeID("music_disc_gloom_woods"),
+            1,
+            SoundsRegistry.MUSIC_DISC_GLOOM_WOODS_EVENT,
+            125
+    );
+    public static final Item MUSIC_DISC_GLOOM_WISPS = getItemRegistry().registerDisc(
+            BetterNether.makeID("music_disc_gloom_wisps"),
+            2,
+            SoundsRegistry.MUSIC_DISC_GLOOM_WISPS_EVENT,
+            200
+    );
+    public static final Item MUSIC_DISC_GLOOMSCULK = getItemRegistry().registerDisc(
+            BetterNether.makeID("music_disc_gloomsculk"),
+            3,
+            SoundsRegistry.MUSIC_DISC_GLOOMSCULK_EVENT,
+            154
+    );
 
     public static final Item STALAGNATE_BOWL = registerItem("stalagnate_bowl", new ItemBowlFood(null, FoodShape.NONE));
     public static final Item STALAGNATE_BOWL_WART = registerItem(

@@ -41,6 +41,7 @@ public class NetherBiomes {
         registerBiomeToggle("crimson_glowing_woods");
         registerBiomeToggle("crimson_pinewood");
         registerBiomeToggle("flooded_deltas");
+        registerBiomeToggle("gloomwood");
         registerBiomeToggle("gravel_desert");
         registerBiomeToggle("magma_land");
         registerBiomeToggle("nether_grasslands");

@@ -1,0 +1,17 @@
+{
+    "type":  "minecraft:crafting_shapeless",
+    "category":  "building",
+    "group":  "gloomwood_transition",
+    "ingredients":  [
+                        {
+                            "item":  "betternether:gloomwood_transition_planks"
+                        },
+                        {
+                            "item":  "betternether:gloomwood_planks"
+                        }
+                    ],
+    "result":  {
+                   "count":  2,
+                   "item":  "betternether:gloomwood_planks"
+               }
+}

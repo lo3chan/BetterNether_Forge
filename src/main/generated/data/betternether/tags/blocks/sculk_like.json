@@ -1,0 +1,11 @@
+{
+    "replace":  false,
+    "values":  [
+                   "minecraft:sculk",
+                   "minecraft:sculk_vein",
+                   "betternether:bleached_gloomsculk",
+                   "betternether:gloomsculk_geode",
+                   "betternether:molten_gloomsculk",
+                   "betternether:veined_gloomsculk"
+               ]
+}

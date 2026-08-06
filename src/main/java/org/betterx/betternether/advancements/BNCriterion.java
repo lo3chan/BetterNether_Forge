@@ -9,6 +9,9 @@ import net.minecraft.advancements.critereon.PlayerTrigger;
 public class BNCriterion {
     public static PlayerTrigger BREW_BLUE;
     public static PlayerTrigger USED_FORGE;
+    public static PlayerTrigger DISTURBED_WISP;
+    public static PlayerTrigger BURNED_GLOOMSCULK_CRYSTAL;
+    public static PlayerTrigger WISP_SHED_EXPERIENCE;
     public static ConvertByLightningTrigger CONVERT_BY_LIGHTNING;
 
 
@@ -24,6 +27,9 @@ public class BNCriterion {
         registered = true;
         BREW_BLUE = CriteriaTriggers.register(new PlayerTrigger(BetterNether.makeID("brew_blue")));
         USED_FORGE = CriteriaTriggers.register(new PlayerTrigger(BetterNether.makeID("used_forge")));
+        DISTURBED_WISP = CriteriaTriggers.register(new PlayerTrigger(BetterNether.makeID("disturbed_wisp")));
+        BURNED_GLOOMSCULK_CRYSTAL = CriteriaTriggers.register(new PlayerTrigger(BetterNether.makeID("burned_gloomsculk_crystal")));
+        WISP_SHED_EXPERIENCE = CriteriaTriggers.register(new PlayerTrigger(BetterNether.makeID("wisp_shed_experience")));
         CONVERT_BY_LIGHTNING = CriteriaTriggers.register(new ConvertByLightningTrigger());
 
         USED_FORGE_ANY_TRIGGER = new PlayerTrigger.TriggerInstance(

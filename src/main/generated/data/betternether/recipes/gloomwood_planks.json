@@ -1,0 +1,14 @@
+{
+    "type":  "minecraft:crafting_shapeless",
+    "category":  "building",
+    "group":  "planks",
+    "ingredients":  [
+                        {
+                            "tag":  "betternether:gloomwood_logs"
+                        }
+                    ],
+    "result":  {
+                   "count":  4,
+                   "item":  "betternether:gloomwood_planks"
+               }
+}

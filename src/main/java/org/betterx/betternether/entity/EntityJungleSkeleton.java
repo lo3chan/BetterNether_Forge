@@ -26,7 +26,6 @@ public class EntityJungleSkeleton extends Skeleton {
     @Override
     public void aiStep() {
         this.updateSwingTime();
-        this.updateNoActionTime();
         super.aiStep();
     }
 
