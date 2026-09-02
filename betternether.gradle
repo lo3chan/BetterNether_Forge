@@ -25,7 +25,7 @@ neoForge {
     version = project.neoforge_version
     parchment {
         minecraftVersion = project.minecraft_version
-        mappingsVersion = "2024.08.18"
+        mappingsVersion = "2024.11.17"
     }
     accessTransformers.from(file("src/main/resources/META-INF/accesstransformer.cfg"))
     runs {
@@ -66,4 +66,13 @@ dependencies {
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
     it.options.release = 21
+}
+
+dependencies {
+}
+
+dependencies {
+    compileOnly "dev.emi:emi-neoforge:1.1.9+1.21.1:api"
+    compileOnly "vazkii.patchouli:Patchouli:1.21-87-NEOFORGE:api"
+    compileOnly "mezz.jei:jei-1.21.1-neoforge-api:19.21.0.23"
 }
