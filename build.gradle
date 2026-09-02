@@ -16,8 +16,8 @@ plugins {
     id 'java-library'
     id 'idea'
     id 'eclipse'
-    id 'net.minecraftforge.gradle' version "${forgegradle_version}"
-    id 'org.spongepowered.mixin' version "0.7.+"
+    id 'net.neoforged.moddev' version '2.0.74-beta'
+    
     id 'maven-publish'
     id "com.diffplug.spotless" version "6.25.0"
 }
@@ -374,7 +374,7 @@ if (enablePublishing) {
         versionType = project.release_channel
         uploadFile = jar
         gameVersions = slurper.parseText(project.modrinth_versions)
-        loaders = ["forge"]
+        loaders = ["neoforge"]
         changelog = changes
         dependencies {
             required.project "bclib"
@@ -411,8 +411,8 @@ if (enablePublishing) {
                 addGameVersion v
                 latestVersion = "[$v]"
             }
-            addGameVersion 'Forge'
-            addGameVersion 'Java 17'
+            addGameVersion 'NeoForge'
+            addGameVersion 'Java 21'
             relations {
                 requiredDependency 'bclib'
                 optionalDependency 'emi'

@@ -1,0 +1,7 @@
+{
+  "parent": "bclib:block/bar_stool",
+  "textures": {
+    "texture": "block/mangrove_planks",
+    "cloth": "block/black_wool"
+  }
+}

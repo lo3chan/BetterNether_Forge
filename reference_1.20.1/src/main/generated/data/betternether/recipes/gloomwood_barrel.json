@@ -1,0 +1,21 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "group":  "barrel",
+    "key":  {
+                "#":  {
+                          "item":  "betternether:gloomwood_planks"
+                      },
+                "S":  {
+                          "item":  "betternether:gloomwood_slab"
+                      }
+            },
+    "pattern":  [
+                    "#S#",
+                    "# #",
+                    "#S#"
+                ],
+    "result":  {
+                   "item":  "betternether:gloomwood_barrel"
+               }
+}

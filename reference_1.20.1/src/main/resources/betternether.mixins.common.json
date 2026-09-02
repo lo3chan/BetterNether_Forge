@@ -1,0 +1,37 @@
+{
+  "required": true,
+  "package": "org.betterx.betternether.mixin.common",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "betternether.refmap.json",
+  "mixins": [
+    "AbstractFurnaceBlockEntityMixin",
+    "BaseFireBlockMixin",
+    "BlockAgeProcessorMixin",
+    "BlockBehaviourAccessor",
+    "BlockBehaviourMixin",
+    "BrewingRecipeRegistryMixin",
+    "CraftingScreenHandlerMixin",
+    "DeltaFeatureMixin",
+    "FlatLevelGeneratorPresetsMixin",
+    "ItemStackMixin",
+    "LeavesBlockMixin",
+    "LightningRodBlockMixin",
+    "LocateCommandInvoker",
+    "LootTableBuilderAccessor",
+    "MapMixin",
+    "MappedRegistryMixin",
+    "MapStateMixin",
+    "MiningToolItemMixin",
+    "MushroomMixin",
+    "NetherWartMixin",
+    "PlayerEntityMixin",
+    "PortalShapeMixin",
+    "RecipeManagerAccessor",
+    "RecipeManagerMixin",
+    "SmithingTransformRecipeMixin",
+    "StructureMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

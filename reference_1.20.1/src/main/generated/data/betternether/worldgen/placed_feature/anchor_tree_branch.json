@@ -1,0 +1,57 @@
+{
+  "feature": "betternether:anchor_tree_branch",
+  "placement": [
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "below_top": 4
+        },
+        "min_inclusive": {
+          "above_bottom": 4
+        }
+      }
+    },
+    {
+      "type": "minecraft:count",
+      "count": 3
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "bclib:under_every_layer",
+      "min": 4
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      }
+    },
+    {
+      "type": "bclib:is",
+      "offset": [
+        0,
+        1,
+        0
+      ],
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "tag": "c:nether_terrain"
+      }
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 11
+    }
+  ]
+}

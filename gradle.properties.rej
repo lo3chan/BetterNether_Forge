@@ -1,0 +1,20 @@
+diff a/gradle.properties b/gradle.properties	(rejected hunks)
+@@ -1,15 +1,13 @@
+ # Done to increase the memory available to gradle.
+ org.gradle.jvmargs=-Xmx4G
+ #Modrinth
+-modrinth_versions=["1.20", "1.20.1"]
++modrinth_versions=["1.21.1"]
+ #`release`, `beta` or `alpha`
+ release_channel=release
+ modrinth_id=betternether
+-# ForgeGradle
+-forgegradle_version=6.0.+
+ # Minecraft/Forge Properties
+-minecraft_version=1.20.1
+-forge_version=47.2.0
++minecraft_version=1.21.1
++neo_version=21.1.248
+ # Mod Properties
+ mod_id=betternether
+ mod_name=Better Nether
