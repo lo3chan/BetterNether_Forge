@@ -1,0 +1,24 @@
+1. **Remove BetterNether BCLib Initialization**: Use `replace_with_git_merge_diff` on `src/main/java/org/betterx/betternether/BetterNether.java` to replace `BCLib` usages and `DataExchangeAPI`, `MigrationProfile` with standard setup logic.
+2. **Read Verification for BetterNether**: Verify edits to `BetterNether.java` with `read_file`.
+3. **Port Command Registry**: Use `replace_with_git_merge_diff` on `src/main/java/org/betterx/betternether/commands/CommandRegistry.java` to remove BCLib dependencies and port to `net.neoforged.neoforge.event.RegisterCommandsEvent`.
+4. **Create Standalone Math Helpers**: Use `write_file` to create `src/main/java/org/betterx/betternether/util/MHelper.java` and `src/main/java/org/betterx/betternether/util/OpenSimplexNoise.java` mirroring necessary methods like `randRange`.
+5. **Verification for Math Helpers**: Verify files using `list_files` in `src/main/java/org/betterx/betternether/util/`.
+6. **Create Blocks Helper**: Use `write_file` to create `src/main/java/org/betterx/betternether/util/BlocksHelper.java` containing static helpers like `setWithoutUpdate`.
+7. **Verification for Blocks Helper**: Verify file creation using `list_files` in `src/main/java/org/betterx/betternether/util/`.
+8. **Port BCLib Biomes Generation**: Create `src/main/java/org/betterx/betternether/world/BNBiomeBuilder.java` using `write_file` to mirror `BCLBiomeBuilder` functionality, then use `replace_with_git_merge_diff` on `src/main/java/org/betterx/betternether/world/NetherBiome.java` and `src/main/java/org/betterx/betternether/world/NetherBiomeConfig.java` to use the new builder instead of BCLib.
+9. **Port Surface Rules**: Create `src/main/java/org/betterx/betternether/world/surface/BNSurfaceRuleBuilder.java` using `write_file` to mirror `SurfaceRuleBuilder` functionality, then update `src/main/java/org/betterx/betternether/registry/NetherBiomes.java` and surface condition classes via Python scripts to use the new builder.
+10. **Port Template Structures**: Create `src/main/java/org/betterx/betternether/world/structures/BNStructure.java` and `BNStructureBuilder.java` using `write_file` to mirror `BCLStructure`, then use Python scripts to modify `Gardens.java`, `GhastHive.java`, `Pyramids.java`, `Altars.java`, `Pillars.java`, `RespawnPoints.java`, `Portals.java`, `JungleTemples.java` in `src/main/java/org/betterx/betternether/world/structures/templates/`.
+11. **Remove Complex Material usages**: Use Python scripts to replace `WoodenComplexMaterial` logic in `src/main/java/org/betterx/betternether/blocks/complex/slots/VanillaNetherWood.java` with static native DeferredRegister instantiations for all block variants.
+12. **Refactor Block Behaviors**: Use a Python script to scan `src/main/java/org/betterx/betternether/blocks/` and remove/replace `BehaviourWood`, `BehaviourMetal`, `SurvivesOnTags`, `BehaviourSapling` with standard `IPlantable` or properties.
+13. **Refactor Block Properties**: Run a Python script across `src/main/java/org/betterx/betternether/blocks/` to replace `org.betterx.bclib.blocks.BlockProperties` with native `net.minecraft.world.level.block.state.properties.BlockStateProperties`.
+14. **Update NetherBlocks Registry**: Use `replace_with_git_merge_diff` on `src/main/java/org/betterx/betternether/registry/NetherBlocks.java` to replace `BlockRegistry` with `DeferredRegister.createBlocks(BetterNether.MOD_ID)`.
+15. **Read Verification for NetherBlocks**: Verify `NetherBlocks.java` edits with `read_file`.
+16. **Update NetherItems Registry**: Use `replace_with_git_merge_diff` on `src/main/java/org/betterx/betternether/registry/NetherItems.java` to replace BCLib item registries with `DeferredRegister.createItems(BetterNether.MOD_ID)`.
+17. **Read Verification for NetherItems**: Verify `NetherItems.java` edits with `read_file`.
+18. **Update NetherEntities Registry**: Use `replace_with_git_merge_diff` on `src/main/java/org/betterx/betternether/registry/NetherEntities.java` to replace BCLib entity registration with `DeferredRegister.create(Registries.ENTITY_TYPE)`.
+19. **Read Verification for NetherEntities**: Verify `NetherEntities.java` edits with `read_file`.
+20. **Refactor Entity Models and Renderers**: Use Python scripts on `src/main/java/org/betterx/betternether/registry/EntityRenderRegistry.java` to adapt client registries to NeoForge `net.neoforged.neoforge.client.event.EntityRenderersEvent`.
+21. **Update Particle Registries**: Use `replace_with_git_merge_diff` on `src/main/java/org/betterx/betternether/registry/NetherParticles.java` to register particles natively using `RegisterParticleProvidersEvent`.
+22. **Final Compilation check**: Run `./gradlew compileJava --stacktrace --info` in bash to verify 0 errors. Iteratively fix any newly introduced errors.
+23. **Pre-commit checks**: Complete pre-commit steps to ensure proper testing, verification, review, and reflection are done.
+24. **Submit branch**: Submit the finished product to branch `main`.

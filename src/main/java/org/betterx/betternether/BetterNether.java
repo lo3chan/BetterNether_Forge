@@ -1,9 +1,5 @@
 package org.betterx.betternether;
 
-import org.betterx.bclib.BCLib;
-import org.betterx.bclib.api.v2.dataexchange.DataExchangeAPI;
-import org.betterx.bclib.api.v3.levelgen.features.FeatureConfigAPI;
-import org.betterx.bclib.registry.RegistryBootstrap;
 import org.betterx.betternether.advancements.BNCriterion;
 import org.betterx.betternether.commands.CommandRegistry;
 import org.betterx.betternether.config.Config;
@@ -45,17 +41,11 @@ public class BetterNether {
         modBus.addListener(NetherTemplates::register);
         modBus.addListener(EventPriority.HIGHEST, this::ensureBlocksLoaded);
         modBus.addListener(EventPriority.HIGHEST, this::ensureItemsLoaded);
-        modBus.addListener(EventPriority.LOWEST, RegistryBootstrap::register);
         modBus.addListener(this::onCommonSetup);
     }
 
-    private void onDatagen() {
-    }
-
     public void onInitialize() {
-        LOGGER.info("=^..^=    BetterNether for 1.20    =^..^=");
-        FeatureConfigAPI.register(MOD_ID, Configs::isFeatureEnabled);
-        //MigrationProfile.fixCustomFolder(new File("/Users/frank/Entwicklung/BetterNether/src/main/resources/data/betternether/structures/lava"));
+        LOGGER.info("=^..^=    BetterNether for 1.21.1    =^..^=");
         initOptions();
         SoundsRegistry.ensureStaticallyLoaded();
         NetherGameRules.ensureStaticallyLoaded();
@@ -72,12 +62,7 @@ public class BetterNether {
 
         Configs.saveConfigs();
         WorldConfig.registerModCache(MOD_ID);
-        DataExchangeAPI.registerMod(BetterNether.MOD_ID);
         Patcher.register();
-
-        if (BCLib.isDatagen()) {
-            onDatagen();
-        }
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {

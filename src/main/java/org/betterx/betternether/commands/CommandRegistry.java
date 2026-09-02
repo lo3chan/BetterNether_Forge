@@ -1,12 +1,10 @@
 package org.betterx.betternether.commands;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiome;
-import org.betterx.bclib.api.v3.levelgen.features.BCLFeature;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.registry.NetherBlocks;
 import org.betterx.betternether.registry.features.placed.NetherVegetationPlaced;
+import org.betterx.betternether.world.NetherBiome;
 import org.betterx.betternether.world.NetherBiomeBuilder;
-import org.betterx.worlds.together.world.event.WorldBootstrap;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
@@ -53,8 +51,8 @@ import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.phys.Vec3;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 import com.google.common.base.Stopwatch;
 import org.joml.Vector3d;
@@ -79,7 +77,7 @@ public class CommandRegistry {
     private static final int SAMPLE_RESOLUTION_VERTICAL = 64;
 
     public static void register() {
-        MinecraftForge.EVENT_BUS.addListener(CommandRegistry::onRegisterCommands);
+        NeoForge.EVENT_BUS.addListener(CommandRegistry::onRegisterCommands);
     }
 
     private static void onRegisterCommands(RegisterCommandsEvent event) {
@@ -131,14 +129,14 @@ public class CommandRegistry {
 
     private static int teleportToNextBiome(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
         final CommandSourceStack source = ctx.getSource();
-        List<BCLBiome> biomes = NetherBiomeBuilder.getAllBnBiomes();
+        List<NetherBiome> biomes = NetherBiomeBuilder.getAllBnBiomes();
 
         if (biomeIndex < 0 || biomeIndex >= biomes.size()) {
             source.sendFailure(Component.literal("Failed to find the next Biome...")
                                         .setStyle(Style.EMPTY.withColor(ChatFormatting.RED)));
             return 0;
         }
-        final BCLBiome biome = biomes.get(biomeIndex);
+        final NetherBiome biome = biomes.get(biomeIndex);
         source.sendSuccess(() -> Component.literal("Locating Biome " + biome)
                                           .setStyle(Style.EMPTY.withColor(ChatFormatting.DARK_GREEN)), false);
         biomeIndex = (biomeIndex + 1) % biomes.size();
@@ -210,25 +208,22 @@ public class CommandRegistry {
                 }
             };
             ResourceKey<Biome> a = biome.getBiomeKey();
-            if (WorldBootstrap.getLastRegistryAccess() != null) {
-                Stopwatch stopwatch = Stopwatch.createStarted(Util.TICKER);
-                Holder<Biome> h = WorldBootstrap.getLastRegistryAccess()
-                                                .registryOrThrow(Registries.BIOME)
-                                                .getHolder(a)
-                                                .orElseThrow();
-                stopwatch.stop();
-                return LocateCommand.showLocateResult(
-                        source,
-                        result,
-                        currentPosition,
-                        new Pair<>(biomePosition, h),
-                        "commands.locatebiome.success",
-                        false,
-                        stopwatch.elapsed()
+            Stopwatch stopwatch = Stopwatch.createStarted(Util.TICKER);
+            Holder<Biome> h = source.getLevel().registryAccess()
+                                            .registryOrThrow(Registries.BIOME)
+                                            .getHolder(a)
+                                            .orElseThrow();
+            stopwatch.stop();
+            return LocateCommand.showLocateResult(
+                    source,
+                    result,
+                    currentPosition,
+                    new Pair<>(biomePosition, h),
+                    "commands.locatebiome.success",
+                    false,
+                    stopwatch.elapsed()
 
-                );
-            }
-            return Command.SINGLE_SUCCESS;
+            );
         }
     }
 
@@ -298,7 +293,7 @@ public class CommandRegistry {
         final ServerLevel level = source.getLevel();
         MutableBlockPos mPos = new BlockPos((int) pos.x, (int) pos.y, (int) pos.z).mutable();
         System.out.println("Staring at: " + mPos + " -> " + level.getBlockState(mPos));
-        boolean found = org.betterx.bclib.util.BlocksHelper.findSurroundingSurface(
+        boolean found = org.betterx.betternether.util.BlocksHelper.findSurroundingSurface(
                 level,
                 mPos,
                 Direction.DOWN,
@@ -307,12 +302,12 @@ public class CommandRegistry {
                         state)
         );
         System.out.println("Ending at: " + mPos + " -> " + level.getBlockState(mPos) + " = " + found);
-        org.betterx.bclib.util.BlocksHelper.setWithoutUpdate(
+        org.betterx.betternether.util.BlocksHelper.setWithoutUpdate(
                 level,
                 new BlockPos((int) pos.x, (int) pos.y, (int) pos.z),
                 Blocks.YELLOW_CONCRETE
         );
-        org.betterx.bclib.util.BlocksHelper.setWithoutUpdate(level, mPos, Blocks.LIGHT_BLUE_CONCRETE);
+        org.betterx.betternether.util.BlocksHelper.setWithoutUpdate(level, mPos, Blocks.LIGHT_BLUE_CONCRETE);
         return Command.SINGLE_SUCCESS;
     }
 
@@ -338,11 +333,10 @@ public class CommandRegistry {
         System.out.println("Noise: " + min + " - " + max);
 
 
-        BCLFeature<RandomPatchFeature, RandomPatchConfiguration> feature = NetherVegetationPlaced.VEGETATION_GRASSLANDS;
         PlacedFeature pFeature = level
                 .registryAccess()
                 .registryOrThrow(Registries.PLACED_FEATURE)
-                .getHolder(feature.getPlacedFeature().unwrapKey().get())
+                .getHolder(NetherVegetationPlaced.VEGETATION_GRASSLANDS)
                 .get()
                 .value();
         var placements = pFeature.placement();
@@ -364,7 +358,7 @@ public class CommandRegistry {
 
             list.forEach(bp -> {
                 BlockState state = states[placeMapIdx];
-                if (org.betterx.bclib.util.BlocksHelper.isTerrain(level.getBlockState(bp)))
+                if (org.betterx.betternether.util.BlocksHelper.isTerrain(level.getBlockState(bp)))
                     state = states2[placeMapIdx];
                 posStates.add(new Pair<>(bp, state));
                 //
