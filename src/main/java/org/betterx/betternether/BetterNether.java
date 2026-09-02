@@ -19,13 +19,12 @@ import org.betterx.worlds.together.world.WorldConfig;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.Registries;
+import net.neoforged.fml.common.Mod;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 @Mod(BetterNether.MOD_ID)
 public class BetterNether {
@@ -34,8 +33,8 @@ public class BetterNether {
     private static boolean thinArmor = true;
     private static boolean lavafallParticles = true;
 
-    public BetterNether() {
-        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public BetterNether(IEventBus modBus) {
+
         // Avoid eager block/item class loading here; it can trip registry freeze in datagen.
         modBus.addListener(EventPriority.HIGHEST, this::ensureStructuresLoaded);
         modBus.addListener(NetherEntities::onRegister);
