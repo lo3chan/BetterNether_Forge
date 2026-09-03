@@ -1,3 +1,4 @@
+cat << 'INNEREOF' > src/main/java/org/betterx/betternether/BetterNether.java
 package org.betterx.betternether;
 
 import org.betterx.betternether.advancements.BNCriterion;
@@ -93,3 +94,4 @@ public class BetterNether {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }
+INNEREOF
