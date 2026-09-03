@@ -1,6 +1,6 @@
 package org.betterx.betternether.world.structures;
 
-import org.betterx.bclib.api.v2.levelgen.structures.StructureNBT;
+import org.betterx.bclib.api.v3.levelgen.structures.StructureNBT;
 import org.betterx.betternether.BetterNether;
 
 import net.minecraft.resources.ResourceLocation;

@@ -1,8 +1,8 @@
 package org.betterx.betternether.world;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder.BiomeSupplier;
-import org.betterx.bclib.api.v2.levelgen.surface.SurfaceRuleBuilder;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder.BiomeSupplier;
+import org.betterx.bclib.api.v3.levelgen.surface.SurfaceRuleBuilder;
 import org.betterx.betternether.BetterNether;
 import org.betterx.betternether.registry.NetherEntities.KnownSpawnTypes;
 

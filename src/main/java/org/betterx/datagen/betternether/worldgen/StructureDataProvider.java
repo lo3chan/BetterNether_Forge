@@ -1,6 +1,6 @@
 package org.betterx.datagen.betternether.worldgen;
 
-import org.betterx.bclib.api.v2.levelgen.structures.BCLStructureBuilder;
+import org.betterx.bclib.api.v3.levelgen.structures.BCLStructureBuilder;
 
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.world.level.levelgen.structure.Structure;

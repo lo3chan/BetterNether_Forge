@@ -1,6 +1,6 @@
 package org.betterx.betternether.world.structures.city;
 
-import org.betterx.bclib.api.v2.levelgen.structures.BCLStructure;
+import org.betterx.bclib.api.v3.levelgen.structures.BCLStructure;
 import org.betterx.betternether.BetterNether;
 import org.betterx.betternether.config.Configs;
 import org.betterx.betternether.registry.NetherStructures;

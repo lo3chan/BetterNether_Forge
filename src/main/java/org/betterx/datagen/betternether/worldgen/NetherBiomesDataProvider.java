@@ -1,10 +1,10 @@
 package org.betterx.datagen.betternether.worldgen;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiome;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeRegistry;
-import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
-import org.betterx.bclib.api.v2.levelgen.surface.rules.Conditions;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiome;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeRegistry;
+import org.betterx.bclib.api.v3.levelgen.biomes.BiomeAPI;
+import org.betterx.bclib.api.v3.levelgen.surface.rules.Conditions;
 import org.betterx.bclib.api.v3.datagen.TagDataProvider;
 import org.betterx.betternether.BetterNether;
 import org.betterx.betternether.registry.NetherBiomes;

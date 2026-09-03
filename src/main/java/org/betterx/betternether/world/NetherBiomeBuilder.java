@@ -1,8 +1,8 @@
 package org.betterx.betternether.world;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiome;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
-import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiome;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder;
+import org.betterx.bclib.api.v3.levelgen.biomes.BiomeAPI;
 import org.betterx.betternether.BetterNether;
 import org.betterx.betternether.registry.NetherEntities;
 import org.betterx.betternether.registry.NetherFeatures;

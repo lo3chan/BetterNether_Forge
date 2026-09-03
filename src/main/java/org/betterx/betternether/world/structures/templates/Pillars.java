@@ -1,6 +1,6 @@
 package org.betterx.betternether.world.structures.templates;
 
-import org.betterx.bclib.api.v2.levelgen.structures.StructurePlacementType;
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
 import org.betterx.betternether.registry.NetherStructures;
 
 import com.mojang.serialization.Codec;

@@ -1,6 +1,6 @@
 package org.betterx.betternether.world.features;
 
-import org.betterx.bclib.api.v2.levelgen.features.features.DefaultFeature;
+import org.betterx.bclib.api.v3.levelgen.features.features.DefaultFeature;
 import org.betterx.betternether.world.structures.StructurePath;
 
 import net.minecraft.core.BlockPos;

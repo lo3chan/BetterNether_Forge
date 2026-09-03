@@ -1,10 +1,10 @@
 package org.betterx.betternether.world.biomes;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder.BiomeSupplier;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeSettings;
-import org.betterx.bclib.api.v2.levelgen.surface.SurfaceRuleBuilder;
-import org.betterx.bclib.api.v2.levelgen.surface.rules.Conditions;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder.BiomeSupplier;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeSettings;
+import org.betterx.bclib.api.v3.levelgen.surface.SurfaceRuleBuilder;
+import org.betterx.bclib.api.v3.levelgen.surface.rules.Conditions;
 import org.betterx.betternether.registry.NetherEntities;
 import org.betterx.betternether.registry.NetherFeatures;
 import org.betterx.betternether.registry.features.placed.NetherObjectsPlaced;

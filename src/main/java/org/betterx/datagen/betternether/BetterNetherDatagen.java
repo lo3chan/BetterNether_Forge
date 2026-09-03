@@ -2,7 +2,7 @@ package org.betterx.datagen.betternether;
 
 import org.betterx.betternether.BetterNether;
 import org.betterx.betternether.advancements.BNCriterion;
-import org.betterx.bclib.api.v2.levelgen.structures.BCLStructure;
+import org.betterx.bclib.api.v3.levelgen.structures.BCLStructure;
 import org.betterx.bclib.api.v3.levelgen.features.BCLFeature;
 import org.betterx.betternether.registry.NetherBlocks;
 import org.betterx.betternether.registry.NetherFeatures;

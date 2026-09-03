@@ -1,6 +1,6 @@
 package org.betterx.betternether.world.features;
 
-import org.betterx.bclib.api.v2.levelgen.features.features.DefaultFeature;
+import org.betterx.bclib.api.v3.levelgen.features.features.DefaultFeature;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.blocks.BlockStalactite;
 import org.betterx.betternether.world.structures.StructureGeneratorThreadContext;

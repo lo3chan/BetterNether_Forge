@@ -1,10 +1,10 @@
 package org.betterx.betternether.registry;
 
 import org.betterx.bclib.api.v2.LifeCycleAPI;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
-import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
-import org.betterx.bclib.api.v2.levelgen.structures.StructurePlacementType;
-import org.betterx.bclib.api.v2.levelgen.structures.StructureWorldNBT;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder;
+import org.betterx.bclib.api.v3.levelgen.biomes.BiomeAPI;
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+import org.betterx.bclib.api.v3.levelgen.structures.StructureWorldNBT;
 import org.betterx.bclib.api.v3.levelgen.features.BCLFeature;
 import org.betterx.bclib.api.v3.levelgen.features.BCLPlacedFeatureBuilder;
 import org.betterx.bclib.api.v3.levelgen.features.config.TemplateFeatureConfig;

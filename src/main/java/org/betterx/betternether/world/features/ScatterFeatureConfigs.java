@@ -1,6 +1,6 @@
 package org.betterx.betternether.world.features;
 
-import org.betterx.bclib.api.v2.levelgen.features.config.ScatterFeatureConfig;
+import org.betterx.bclib.api.v3.levelgen.features.config.ScatterFeatureConfig;
 import org.betterx.bclib.util.BlocksHelper;
 import org.betterx.betternether.blocks.BlockStalactite;
 

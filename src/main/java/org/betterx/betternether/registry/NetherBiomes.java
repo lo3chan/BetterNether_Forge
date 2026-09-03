@@ -1,7 +1,7 @@
 package org.betterx.betternether.registry;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeRegistry;
-import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeRegistry;
+import org.betterx.bclib.api.v3.levelgen.biomes.BiomeAPI;
 import org.betterx.bclib.interfaces.NumericProvider;
 import org.betterx.betternether.BN;
 import org.betterx.betternether.BetterNether;

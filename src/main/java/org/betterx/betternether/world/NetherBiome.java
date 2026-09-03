@@ -1,7 +1,7 @@
 package org.betterx.betternether.world;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiome;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeSettings;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiome;
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeSettings;
 import org.betterx.betternether.config.Configs;
 
 import com.mojang.serialization.Codec;

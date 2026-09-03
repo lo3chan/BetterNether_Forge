@@ -1,6 +1,6 @@
 package org.betterx.betternether.registry;
 
-import org.betterx.bclib.api.v2.levelgen.structures.StructurePlacementType;
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
 import org.betterx.betternether.world.structures.IStructure;
 
 import com.google.common.collect.Maps;
