@@ -27,8 +27,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.neoforged.neoforge.api.distmarker.Dist;
-import net.neoforged.neoforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 public class BlockBoneMushroom extends BlockBaseNotFull implements SurvivesOnBoneBlocks, BehaviourPlant {
     private static final VoxelShape SHAPE_NORTH = box(1, 1, 8, 15, 15, 16);

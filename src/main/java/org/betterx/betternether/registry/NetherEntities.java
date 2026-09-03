@@ -344,6 +344,12 @@ public class NetherEntities {
         ATTR_BUILDERS.forEach((type, builder) -> event.put(type, builder.build()));
     }
 
+    public static final net.neoforged.neoforge.registries.DeferredRegister<EntityType<?>> ENTITIES = net.neoforged.neoforge.registries.DeferredRegister.create(Registries.ENTITY_TYPE, BetterNether.MOD_ID);
+
+    public static void register(net.neoforged.bus.api.IEventBus modBus) {
+        ENTITIES.register(modBus);
+    }
+
     public static void onRegister(RegisterEvent event) {
         if (!event.getRegistryKey().equals(Registries.ENTITY_TYPE)) return;
         event.register(Registries.ENTITY_TYPE, helper -> {
@@ -352,7 +358,7 @@ public class NetherEntities {
                     .sized(1F, 1F)
                     .noSummon()
                     .build(BetterNether.makeID("naga_projectile").toString());
-            helper.register(BetterNether.makeID("naga_projectile"), NAGA_PROJECTILE);
+            ENTITIES.register("naga_projectile", () -> NAGA_PROJECTILE);
             ATTR_BUILDERS.put(NAGA_PROJECTILE, Mob.createMobAttributes());
 
             FIREFLY = register(
@@ -363,7 +369,7 @@ public class NetherEntities {
                     EntityFirefly::new,
                     EntityFirefly.createMobAttributes()
             );
-            helper.register(BetterNether.makeID("firefly"), FIREFLY.type());
+            ENTITIES.register("firefly", () -> FIREFLY.type());
 
             HYDROGEN_JELLYFISH = register(
                     "hydrogen_jellyfish",
@@ -373,7 +379,7 @@ public class NetherEntities {
                     EntityHydrogenJellyfish::new,
                     EntityHydrogenJellyfish.createMobAttributes()
             );
-            helper.register(BetterNether.makeID("hydrogen_jellyfish"), HYDROGEN_JELLYFISH.type());
+            ENTITIES.register("hydrogen_jellyfish", () -> HYDROGEN_JELLYFISH.type());
 
             NAGA = register(
                     "naga",
@@ -383,7 +389,7 @@ public class NetherEntities {
                     EntityNaga::new,
                     EntityNaga.createMobAttributes()
             );
-            helper.register(BetterNether.makeID("naga"), NAGA.type());
+            ENTITIES.register("naga", () -> NAGA.type());
 
             FLYING_PIG = register(
                     "flying_pig",
@@ -393,7 +399,7 @@ public class NetherEntities {
                     EntityFlyingPig::new,
                     EntityFlyingPig.createMobAttributes()
             );
-            helper.register(BetterNether.makeID("flying_pig"), FLYING_PIG.type());
+            ENTITIES.register("flying_pig", () -> FLYING_PIG.type());
 
             JUNGLE_SKELETON = register(
                     "jungle_skeleton",
@@ -403,7 +409,7 @@ public class NetherEntities {
                     EntityJungleSkeleton::new,
                     EntityJungleSkeleton.createMonsterAttributes()
             );
-            helper.register(BetterNether.makeID("jungle_skeleton"), JUNGLE_SKELETON.type());
+            ENTITIES.register("jungle_skeleton", () -> JUNGLE_SKELETON.type());
 
             SKULL = register(
                     "skull",
@@ -413,7 +419,7 @@ public class NetherEntities {
                     EntitySkull::new,
                     EntitySkull.createMobAttributes()
             );
-            helper.register(BetterNether.makeID("skull"), SKULL.type());
+            ENTITIES.register("skull", () -> SKULL.type());
 
             KnownSpawnTypes.SKULL.setWrapper(SKULL);
             KnownSpawnTypes.FIREFLY.setWrapper(FIREFLY);
