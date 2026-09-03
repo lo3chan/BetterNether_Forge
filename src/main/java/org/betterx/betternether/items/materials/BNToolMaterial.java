@@ -10,7 +10,7 @@ import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.ForgeRegistries;
 
 public enum BNToolMaterial implements Tier, SmithingSet {
     CINCINNASITE(2, 512, 6.2F, 2.5F, 16, NetherItems.CINCINNASITE_INGOT,

@@ -20,8 +20,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.api.distmarker.Dist;
+import net.neoforged.neoforge.api.distmarker.OnlyIn;
 
 public class BlockGiantMold extends BlockBaseNotFull implements AddMineableAxe {
     private static final VoxelShape TOP_SHAPE = box(2, 2, 2, 14, 14, 14);

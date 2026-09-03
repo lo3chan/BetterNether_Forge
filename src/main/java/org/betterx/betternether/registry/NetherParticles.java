@@ -8,8 +8,8 @@ import org.betterx.betternether.particles.BNParticleProvider;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 public class NetherParticles {
     public static SimpleParticleType BLUE_DRIPPING_OBSIDIAN_TEAR;

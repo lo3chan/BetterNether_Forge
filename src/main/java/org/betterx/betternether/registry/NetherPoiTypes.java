@@ -7,7 +7,7 @@ import org.betterx.betternether.BetterNether;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 import java.util.HashSet;
 

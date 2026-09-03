@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.registries.Registries;
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 public class BlockEntitiesRegistry {
     public static BlockEntityType<BlockEntityForge> CINCINNASITE_FORGE;

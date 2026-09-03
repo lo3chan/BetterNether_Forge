@@ -16,8 +16,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.api.distmarker.Dist;
+import net.neoforged.neoforge.api.distmarker.OnlyIn;
 
 public class BlockStalagnate extends BlockBaseNotFull implements BehaviourWood {
     private static final VoxelShape SELECT_SHAPE = box(4, 0, 4, 12, 16, 12);

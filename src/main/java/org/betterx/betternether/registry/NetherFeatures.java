@@ -37,7 +37,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import com.google.common.collect.Lists;
 
 import java.util.List;
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 public class NetherFeatures {
     public static Feature<NoneFeatureConfiguration> JELLYFISH_MUSHROOM;

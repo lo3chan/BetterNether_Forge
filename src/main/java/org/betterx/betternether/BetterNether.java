@@ -78,7 +78,7 @@ public class BetterNether {
         } catch (ClassNotFoundException ignored) {
         }
         NetherTags.register();
-        // Ensure features/structure types are queued before BCLib's registry events fire.
+        // Ensure features/structure types are queued before registry events fire.
         NetherStructures.ensureStaticLoad();
         NetherFeatures.register();
     }

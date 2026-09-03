@@ -1,6 +1,6 @@
 package org.betterx.betternether.integrations.blockus;
 
-import net.minecraftforge.fml.ModList;
+import net.neoforged.neoforge.fml.ModList;
 
 public class BlockusUtils {
     public static boolean hasBlockus() {

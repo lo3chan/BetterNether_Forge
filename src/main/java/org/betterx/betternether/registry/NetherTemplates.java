@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.SmithingTemplateItem;
 
 import java.util.List;
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 public class NetherTemplates {
     public static final ResourceLocation EMPTY_SLOT_BOWL = BetterNether.makeID("item/empty_slot_bowl");

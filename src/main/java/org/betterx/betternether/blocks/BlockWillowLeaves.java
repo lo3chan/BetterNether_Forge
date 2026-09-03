@@ -20,8 +20,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.api.distmarker.Dist;
+import net.neoforged.neoforge.api.distmarker.OnlyIn;
 
 public class BlockWillowLeaves extends BNLeaves {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
