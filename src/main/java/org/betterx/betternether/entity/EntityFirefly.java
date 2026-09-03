@@ -1,6 +1,6 @@
 package org.betterx.betternether.entity;
 
-import org.betterx.bclib.entity.DespawnableAnimal;
+import net.minecraft.world.entity.PathfinderMob;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.MHelper;
 import org.betterx.betternether.registry.NetherBlocks;
@@ -49,7 +49,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.EnumSet;
 
-public class EntityFirefly extends DespawnableAnimal implements FlyingAnimal {
+public class EntityFirefly extends PathfinderMob implements FlyingAnimal {
     private static final Vec3i[] SEARCH;
 
     private static final EntityDataAccessor<Float> COLOR_RED = SynchedEntityData.defineId(
@@ -67,7 +67,7 @@ public class EntityFirefly extends DespawnableAnimal implements FlyingAnimal {
 
     private boolean mustSit = false;
 
-    public EntityFirefly(EntityType<? extends EntityFirefly> type, Level world) {
+    public EntityFirefly(EntityType<? extends PathfinderMob> type, Level world) {
         super(type, world);
         this.moveControl = new FlyingMoveControl(this, 20, true);
         this.lookControl = new FreflyLookControl(this);

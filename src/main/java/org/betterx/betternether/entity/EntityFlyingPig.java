@@ -1,6 +1,6 @@
 package org.betterx.betternether.entity;
 
-import org.betterx.bclib.entity.DespawnableAnimal;
+import net.minecraft.world.entity.PathfinderMob;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.MHelper;
 import org.betterx.betternether.registry.NetherEntities;
@@ -54,13 +54,13 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityFlyingPig extends DespawnableAnimal implements FlyingAnimal {
+public class EntityFlyingPig extends PathfinderMob implements FlyingAnimal {
     private static final EntityDataAccessor<Byte> DATA_SHARED_FLAGS_ID;
     private static final int BIT_ROOSTING = 0;
     private static final int BIT_WARTED = 1;
     private Goal preGoal;
 
-    public EntityFlyingPig(EntityType<? extends EntityFlyingPig> type, Level world) {
+    public EntityFlyingPig(EntityType<? extends PathfinderMob> type, Level world) {
         super(type, world);
         this.moveControl = new FlyingMoveControl(this, 20, true);
         this.setPathfindingMalus(BlockPathTypes.LAVA, 0.0F);

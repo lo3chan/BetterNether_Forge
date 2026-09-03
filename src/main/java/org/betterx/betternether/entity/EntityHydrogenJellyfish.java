@@ -1,6 +1,6 @@
 package org.betterx.betternether.entity;
 
-import org.betterx.bclib.entity.DespawnableAnimal;
+import net.minecraft.world.entity.PathfinderMob;
 import org.betterx.betternether.registry.SoundsRegistry;
 
 import net.minecraft.core.BlockPos;
@@ -31,7 +31,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-public class EntityHydrogenJellyfish extends DespawnableAnimal implements FlyingAnimal {
+public class EntityHydrogenJellyfish extends PathfinderMob implements FlyingAnimal {
     private static final EntityDataAccessor<Float> SCALE = SynchedEntityData.defineId(
             EntityHydrogenJellyfish.class,
             EntityDataSerializers.FLOAT
@@ -44,7 +44,7 @@ public class EntityHydrogenJellyfish extends DespawnableAnimal implements Flying
     private float prewYaw;
     private float nextYaw;
 
-    public EntityHydrogenJellyfish(EntityType<? extends EntityHydrogenJellyfish> type, Level world) {
+    public EntityHydrogenJellyfish(EntityType<? extends PathfinderMob> type, Level world) {
         super(type, world);
     }
 
