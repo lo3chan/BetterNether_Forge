@@ -1,6 +1,6 @@
 package org.betterx.betternether.items;
 
-import org.betterx.bclib.items.tool.BaseShovelItem;
+import net.minecraft.world.item.ShovelItem;
 import org.betterx.betternether.interfaces.InitialStackStateProvider;
 import org.betterx.betternether.items.materials.BNToolMaterial;
 import org.betterx.betternether.registry.NetherEnchantments;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Map;
 
-public class NetherShovel extends BaseShovelItem implements InitialStackStateProvider {
+public class NetherShovel extends ShovelItem implements InitialStackStateProvider {
     public NetherShovel(Tier material, float attackDamage, float attackSpeed) {
         super(material, attackDamage, attackSpeed, NetherItems.defaultSettings().fireResistant());
     }

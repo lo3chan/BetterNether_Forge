@@ -1,8 +1,8 @@
 package org.betterx.betternether.blocks;
 
-import org.betterx.bclib.blocks.BaseStripableLogBlock;
-import org.betterx.bclib.blocks.BlockProperties;
-import org.betterx.bclib.blocks.BlockProperties.TripleShape;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import org.betterx.betternether.blocks.BNBlockProperties.TripleShape;
 import org.betterx.bclib.interfaces.tools.AddMineableAxe;
 
 import net.minecraft.core.Direction;
@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
 
-public class RubeusLog extends BaseStripableLogBlock.Wood implements AddMineableAxe {
+public class RubeusLog extends RotatedPillarBlock implements AddMineableAxe {
     public static final EnumProperty<TripleShape> SHAPE = BlockProperties.TRIPLE_SHAPE;
 
     public RubeusLog(MapColor color, Block striped) {

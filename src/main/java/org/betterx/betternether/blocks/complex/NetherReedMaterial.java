@@ -1,6 +1,6 @@
 package org.betterx.betternether.blocks.complex;
 
-import org.betterx.bclib.blocks.BaseBookshelfBlock;
+import net.minecraft.world.level.block.Block;
 import org.betterx.bclib.client.models.ModelsHelper;
 import org.betterx.bclib.client.models.PatternsHelper;
 import org.betterx.bclib.complexmaterials.ComplexMaterial;
@@ -31,7 +31,7 @@ import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-class ReedBookshelfBlock extends BaseBookshelfBlock.Wood {
+class ReedBookshelfBlock extends Block {
 
     public ReedBookshelfBlock(Block source) {
         super(source);

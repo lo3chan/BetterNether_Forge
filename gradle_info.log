@@ -1,0 +1,460 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/app/src/main/java/org/betterx/betternether/commands/PlaceCommand.java:3: error: package org.betterx.bclib does not exist
+import org.betterx.bclib.BCLib;
+                        ^
+/app/src/main/java/org/betterx/betternether/world/NetherBiomeConfig.java:3: error: package org.betterx.bclib.api.v3.levelgen.biomes does not exist
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder;
+                                               ^
+/app/src/main/java/org/betterx/betternether/world/NetherBiomeConfig.java:4: error: package org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder does not exist
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder.BiomeSupplier;
+                                                               ^
+/app/src/main/java/org/betterx/betternether/world/NetherBiomeConfig.java:5: error: package org.betterx.bclib.api.v3.levelgen.surface does not exist
+import org.betterx.bclib.api.v3.levelgen.surface.SurfaceRuleBuilder;
+                                                ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:3: error: package org.betterx.bclib.api.v3.levelgen.biomes does not exist
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeBuilder;
+                                               ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:4: error: package org.betterx.bclib.api.v3.levelgen.biomes does not exist
+import org.betterx.bclib.api.v3.levelgen.biomes.BiomeAPI;
+                                               ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:5: error: package org.betterx.bclib.entity does not exist
+import org.betterx.bclib.entity.BCLEntityWrapper;
+                               ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:6: error: package org.betterx.bclib.interfaces does not exist
+import org.betterx.bclib.interfaces.SpawnRule;
+                                   ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:11: error: package org.betterx.ui does not exist
+import org.betterx.ui.ColorUtil;
+                     ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:29: error: cannot find symbol
+import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
+                                          ^
+  symbol:   class SpawnPlacementRegisterEvent
+  location: package net.neoforged.neoforge.event.entity
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:30: error: package net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent does not exist
+import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent.Operation;
+                                                                      ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:31: error: package net.neoforged.neoforge.eventbus.api does not exist
+import net.neoforged.neoforge.eventbus.api.SubscribeEvent;
+                                          ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:32: error: package net.neoforged.neoforge.fml.common does not exist
+import net.neoforged.neoforge.fml.common.Mod;
+                                        ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:33: error: cannot find symbol
+import net.neoforged.neoforge.registries.ForgeRegistries;
+                                        ^
+  symbol:   class ForgeRegistries
+  location: package net.neoforged.neoforge.registries
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:44: error: package Mod does not exist
+@Mod.EventBusSubscriber(modid = BetterNether.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    ^
+/app/src/main/java/org/betterx/betternether/world/NetherBiomeConfig.java:86: error: cannot find symbol
+    protected abstract void addCustomBuildData(BCLBiomeBuilder builder);
+                                               ^
+  symbol:   class BCLBiomeBuilder
+  location: class NetherBiomeConfig
+/app/src/main/java/org/betterx/betternether/world/NetherBiomeConfig.java:88: error: cannot find symbol
+    public abstract BiomeSupplier<NetherBiome> getSupplier();
+                    ^
+  symbol:   class BiomeSupplier
+  location: class NetherBiomeConfig
+/app/src/main/java/org/betterx/betternether/world/NetherBiome.java:3: error: package org.betterx.bclib.api.v3.levelgen.biomes does not exist
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiome;
+                                               ^
+/app/src/main/java/org/betterx/betternether/world/NetherBiome.java:4: error: package org.betterx.bclib.api.v3.levelgen.biomes does not exist
+import org.betterx.bclib.api.v3.levelgen.biomes.BCLBiomeSettings;
+                                               ^
+/app/src/main/java/org/betterx/betternether/world/NetherBiome.java:18: error: cannot find symbol
+public class NetherBiome extends BCLBiome {
+                                 ^
+  symbol: class BCLBiome
+/app/src/main/java/org/betterx/betternether/world/NetherBiomeConfig.java:90: error: cannot find symbol
+    public SurfaceRuleBuilder surface() {
+           ^
+  symbol:   class SurfaceRuleBuilder
+  location: class NetherBiomeConfig
+/app/src/main/java/org/betterx/betternether/world/NetherBiome.java:25: error: cannot find symbol
+    public KeyDispatchDataCodec<? extends BCLBiome> codec() {
+                                          ^
+  symbol:   class BCLBiome
+  location: class NetherBiome
+/app/src/main/java/org/betterx/betternether/world/NetherBiome.java:55: error: cannot find symbol
+    protected NetherBiome(ResourceKey<Biome> biomeID, BCLBiomeSettings settings) {
+                                                      ^
+  symbol:   class BCLBiomeSettings
+  location: class NetherBiome
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:66: error: cannot find symbol
+        public BCLEntityWrapper wrapper;
+               ^
+  symbol:   class BCLEntityWrapper
+  location: class KnownSpawnTypes
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:72: error: cannot find symbol
+        public void addSpawn(BCLBiomeBuilder builder, NetherBiomeConfig data) {
+                             ^
+  symbol:   class BCLBiomeBuilder
+  location: class KnownSpawnTypes
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:118: error: cannot find symbol
+        <M extends Mob> KnownSpawnTypes(int w, int min, int max, BCLEntityWrapper type) {
+                                                                 ^
+  symbol:   class BCLEntityWrapper
+  location: class KnownSpawnTypes
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:126: error: cannot find symbol
+        void setWrapper(BCLEntityWrapper wrapper) {
+                        ^
+  symbol:   class BCLEntityWrapper
+  location: class KnownSpawnTypes
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:135: error: cannot find symbol
+    private static final List<BCLEntityWrapper<?>> NETHER_ENTITIES = Lists.newArrayList();
+                              ^
+  symbol:   class BCLEntityWrapper
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/entity/EntityNagaProjectile.java:17: error: package net.neoforged.neoforge.api.distmarker does not exist
+import net.neoforged.neoforge.api.distmarker.Dist;
+                                            ^
+/app/src/main/java/org/betterx/betternether/entity/EntityNagaProjectile.java:18: error: package net.neoforged.neoforge.api.distmarker does not exist
+import net.neoforged.neoforge.api.distmarker.OnlyIn;
+                                            ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:140: error: cannot find symbol
+    public static BCLEntityWrapper<EntityFirefly> FIREFLY;
+                  ^
+  symbol:   class BCLEntityWrapper
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/entity/EntityFirefly.java:3: error: package org.betterx.bclib.entity does not exist
+import org.betterx.bclib.entity.DespawnableAnimal;
+                               ^
+/app/src/main/java/org/betterx/betternether/entity/EntityFirefly.java:44: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+                                           ^
+  symbol:   class BlockPathTypes
+  location: package net.minecraft.world.level.pathfinder
+/app/src/main/java/org/betterx/betternether/entity/EntityFirefly.java:52: error: cannot find symbol
+public class EntityFirefly extends DespawnableAnimal implements FlyingAnimal {
+                                   ^
+  symbol: class DespawnableAnimal
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:142: error: cannot find symbol
+    public static BCLEntityWrapper<EntityHydrogenJellyfish> HYDROGEN_JELLYFISH;
+                  ^
+  symbol:   class BCLEntityWrapper
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/entity/EntityHydrogenJellyfish.java:3: error: package org.betterx.bclib.entity does not exist
+import org.betterx.bclib.entity.DespawnableAnimal;
+                               ^
+/app/src/main/java/org/betterx/betternether/entity/EntityHydrogenJellyfish.java:34: error: cannot find symbol
+public class EntityHydrogenJellyfish extends DespawnableAnimal implements FlyingAnimal {
+                                             ^
+  symbol: class DespawnableAnimal
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:144: error: cannot find symbol
+    public static BCLEntityWrapper<EntityNaga> NAGA;
+                  ^
+  symbol:   class BCLEntityWrapper
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:146: error: cannot find symbol
+    public static BCLEntityWrapper<EntityFlyingPig> FLYING_PIG;
+                  ^
+  symbol:   class BCLEntityWrapper
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/entity/EntityFlyingPig.java:3: error: package org.betterx.bclib.entity does not exist
+import org.betterx.bclib.entity.DespawnableAnimal;
+                               ^
+/app/src/main/java/org/betterx/betternether/entity/EntityFlyingPig.java:48: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+                                           ^
+  symbol:   class BlockPathTypes
+  location: package net.minecraft.world.level.pathfinder
+/app/src/main/java/org/betterx/betternether/entity/EntityFlyingPig.java:57: error: cannot find symbol
+public class EntityFlyingPig extends DespawnableAnimal implements FlyingAnimal {
+                                     ^
+  symbol: class DespawnableAnimal
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:148: error: cannot find symbol
+    public static BCLEntityWrapper<EntityJungleSkeleton> JUNGLE_SKELETON;
+                  ^
+  symbol:   class BCLEntityWrapper
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:150: error: cannot find symbol
+    public static BCLEntityWrapper<EntitySkull> SKULL;
+                  ^
+  symbol:   class BCLEntityWrapper
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/entity/EntitySkull.java:28: error: cannot find symbol
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+                                           ^
+  symbol:   class BlockPathTypes
+  location: package net.minecraft.world.level.pathfinder
+/app/src/main/java/org/betterx/betternether/entity/EntitySkull.java:32: error: package net.neoforged.neoforge.api.distmarker does not exist
+import net.neoforged.neoforge.api.distmarker.Dist;
+                                            ^
+/app/src/main/java/org/betterx/betternether/entity/EntitySkull.java:33: error: package net.neoforged.neoforge.api.distmarker does not exist
+import net.neoforged.neoforge.api.distmarker.OnlyIn;
+                                            ^
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:153: error: cannot find symbol
+    private static <T extends Mob> BCLEntityWrapper<T> register(
+                                   ^
+  symbol:   class BCLEntityWrapper
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:239: error: cannot find symbol
+    public static final SpawnRule RULE_FLOAT_NOT_ABOVE_LAVA = (type, world, spawnReason, pos, random) -> testSpawnAboveLava(
+                        ^
+  symbol:   class SpawnRule
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:244: error: cannot find symbol
+    public static final SpawnRule RULE_FLOAT_ABOVE_LAVA = (type, world, spawnReason, pos, random) -> testSpawnAboveLava(
+                        ^
+  symbol:   class SpawnRule
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/registry/NetherEntities.java:270: error: cannot find symbol
+    public static void onRegisterSpawnPlacements(SpawnPlacementRegisterEvent event) {
+                                                 ^
+  symbol:   class SpawnPlacementRegisterEvent
+  location: class NetherEntities
+/app/src/main/java/org/betterx/betternether/entity/EntitySkull.java:243: error: cannot find symbol
+    public MobType getMobType() {
+           ^
+  symbol:   class MobType
+  location: class EntitySkull
+/app/src/main/java/org/betterx/betternether/entity/EntityNaga.java:69: error: cannot find symbol
+    public MobType getMobType() {
+           ^
+  symbol:   class MobType
+  location: class EntityNaga
+/app/src/main/java/org/betterx/betternether/entity/EntityFirefly.java:148: error: cannot find symbol
+    public MobType getMobType() {
+           ^
+  symbol:   class MobType
+  location: class EntityFirefly
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Gardens.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:4: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.TemplateStructure;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:11: error: cannot find symbol
+abstract class TemplateStructureHelper extends TemplateStructure {
+                                               ^
+  symbol: class TemplateStructure
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Gardens.java:14: error: cannot find symbol
+    protected Gardens(StructureSettings structureSettings, List<Config> configs) {
+                      ^
+  symbol:   class StructureSettings
+  location: class Gardens
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Gardens.java:14: error: cannot find symbol
+    protected Gardens(StructureSettings structureSettings, List<Config> configs) {
+                                                                ^
+  symbol:   class Config
+  location: class Gardens
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Gardens.java:18: error: cannot find symbol
+    public Gardens(StructureSettings structureSettings) {
+                   ^
+  symbol:   class StructureSettings
+  location: class Gardens
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:14: error: cannot find symbol
+            StructureSettings structureSettings,
+            ^
+  symbol:   class StructureSettings
+  location: class TemplateStructureHelper
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:17: error: cannot find symbol
+            StructurePlacementType type,
+            ^
+  symbol:   class StructurePlacementType
+  location: class TemplateStructureHelper
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:23: error: cannot find symbol
+    protected TemplateStructureHelper(StructureSettings structureSettings, List<Config> configs) {
+                                      ^
+  symbol:   class StructureSettings
+  location: class TemplateStructureHelper
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:23: error: cannot find symbol
+    protected TemplateStructureHelper(StructureSettings structureSettings, List<Config> configs) {
+                                                                                ^
+  symbol:   class Config
+  location: class TemplateStructureHelper
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:27: error: cannot find symbol
+    public static TemplateStructure.Config cfg(String name, int offsetY, StructurePlacementType type, float chance) {
+                                                                         ^
+  symbol:   class StructurePlacementType
+  location: class TemplateStructureHelper
+/app/src/main/java/org/betterx/betternether/world/structures/templates/TemplateStructureHelper.java:27: error: package TemplateStructure does not exist
+    public static TemplateStructure.Config cfg(String name, int offsetY, StructurePlacementType type, float chance) {
+                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/GhastHive.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/GhastHive.java:14: error: cannot find symbol
+    protected GhastHive(StructureSettings structureSettings, List<Config> configs) {
+                        ^
+  symbol:   class StructureSettings
+  location: class GhastHive
+/app/src/main/java/org/betterx/betternether/world/structures/templates/GhastHive.java:14: error: cannot find symbol
+    protected GhastHive(StructureSettings structureSettings, List<Config> configs) {
+                                                                  ^
+  symbol:   class Config
+  location: class GhastHive
+/app/src/main/java/org/betterx/betternether/world/structures/templates/GhastHive.java:18: error: cannot find symbol
+    public GhastHive(StructureSettings structureSettings) {
+                     ^
+  symbol:   class StructureSettings
+  location: class GhastHive
+/app/src/main/java/org/betterx/betternether/world/structures/templates/SpawnAltarLadder.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/SpawnAltarLadder.java:14: error: cannot find symbol
+    protected SpawnAltarLadder(StructureSettings structureSettings, List<Config> configs) {
+                               ^
+  symbol:   class StructureSettings
+  location: class SpawnAltarLadder
+/app/src/main/java/org/betterx/betternether/world/structures/templates/SpawnAltarLadder.java:14: error: cannot find symbol
+    protected SpawnAltarLadder(StructureSettings structureSettings, List<Config> configs) {
+                                                                         ^
+  symbol:   class Config
+  location: class SpawnAltarLadder
+/app/src/main/java/org/betterx/betternether/world/structures/templates/SpawnAltarLadder.java:18: error: cannot find symbol
+    public SpawnAltarLadder(StructureSettings structureSettings) {
+                            ^
+  symbol:   class StructureSettings
+  location: class SpawnAltarLadder
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Pyramids.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Pyramids.java:14: error: cannot find symbol
+    protected Pyramids(StructureSettings structureSettings, List<Config> configs) {
+                       ^
+  symbol:   class StructureSettings
+  location: class Pyramids
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Pyramids.java:14: error: cannot find symbol
+    protected Pyramids(StructureSettings structureSettings, List<Config> configs) {
+                                                                 ^
+  symbol:   class Config
+  location: class Pyramids
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Pyramids.java:18: error: cannot find symbol
+    public Pyramids(StructureSettings structureSettings) {
+                    ^
+  symbol:   class StructureSettings
+  location: class Pyramids
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Altars.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Altars.java:14: error: cannot find symbol
+    protected Altars(StructureSettings structureSettings, List<Config> configs) {
+                     ^
+  symbol:   class StructureSettings
+  location: class Altars
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Altars.java:14: error: cannot find symbol
+    protected Altars(StructureSettings structureSettings, List<Config> configs) {
+                                                               ^
+  symbol:   class Config
+  location: class Altars
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Altars.java:18: error: cannot find symbol
+    public Altars(StructureSettings structureSettings) {
+                  ^
+  symbol:   class StructureSettings
+  location: class Altars
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Pillars.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Pillars.java:14: error: cannot find symbol
+    protected Pillars(StructureSettings structureSettings, List<Config> configs) {
+                      ^
+  symbol:   class StructureSettings
+  location: class Pillars
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Pillars.java:14: error: cannot find symbol
+    protected Pillars(StructureSettings structureSettings, List<Config> configs) {
+                                                                ^
+  symbol:   class Config
+  location: class Pillars
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Pillars.java:18: error: cannot find symbol
+    public Pillars(StructureSettings structureSettings) {
+                   ^
+  symbol:   class StructureSettings
+  location: class Pillars
+/app/src/main/java/org/betterx/betternether/world/structures/templates/RespawnPoints.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/RespawnPoints.java:14: error: cannot find symbol
+    protected RespawnPoints(StructureSettings structureSettings, List<Config> configs) {
+                            ^
+  symbol:   class StructureSettings
+  location: class RespawnPoints
+/app/src/main/java/org/betterx/betternether/world/structures/templates/RespawnPoints.java:14: error: cannot find symbol
+    protected RespawnPoints(StructureSettings structureSettings, List<Config> configs) {
+                                                                      ^
+  symbol:   class Config
+  location: class RespawnPoints
+/app/src/main/java/org/betterx/betternether/world/structures/templates/RespawnPoints.java:18: error: cannot find symbol
+    public RespawnPoints(StructureSettings structureSettings) {
+                         ^
+  symbol:   class StructureSettings
+  location: class RespawnPoints
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Portals.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Portals.java:14: error: cannot find symbol
+    protected Portals(StructureSettings structureSettings, List<Config> configs) {
+                      ^
+  symbol:   class StructureSettings
+  location: class Portals
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Portals.java:14: error: cannot find symbol
+    protected Portals(StructureSettings structureSettings, List<Config> configs) {
+                                                                ^
+  symbol:   class Config
+  location: class Portals
+/app/src/main/java/org/betterx/betternether/world/structures/templates/Portals.java:18: error: cannot find symbol
+    public Portals(StructureSettings structureSettings) {
+                   ^
+  symbol:   class StructureSettings
+  location: class Portals
+/app/src/main/java/org/betterx/betternether/world/structures/templates/JungleTemples.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructurePlacementType;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/world/structures/templates/JungleTemples.java:14: error: cannot find symbol
+    protected JungleTemples(StructureSettings structureSettings, List<Config> configs) {
+                            ^
+  symbol:   class StructureSettings
+  location: class JungleTemples
+/app/src/main/java/org/betterx/betternether/world/structures/templates/JungleTemples.java:14: error: cannot find symbol
+    protected JungleTemples(StructureSettings structureSettings, List<Config> configs) {
+                                                                      ^
+  symbol:   class Config
+  location: class JungleTemples
+/app/src/main/java/org/betterx/betternether/world/structures/templates/JungleTemples.java:18: error: cannot find symbol
+    public JungleTemples(StructureSettings structureSettings) {
+                         ^
+  symbol:   class StructureSettings
+  location: class JungleTemples
+/app/src/main/java/org/betterx/betternether/world/structures/NetherStructureNBT.java:3: error: package org.betterx.bclib.api.v3.levelgen.structures does not exist
+import org.betterx.bclib.api.v3.levelgen.structures.StructureNBT;
+                                                   ^
+/app/src/main/java/org/betterx/betternether/commands/CommandRegistry.java:324: warning: [removal] BIOME_INFO_NOISE in Biome has been deprecated and marked for removal
+                double v = Biome.BIOME_INFO_NOISE.getValue(
+                                ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+1 warning
+only showing the first 100 errors, of 4021 total; use -Xmaxerrs if you would like to see more
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.8/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 9s
+2 actionable tasks: 1 executed, 1 up-to-date

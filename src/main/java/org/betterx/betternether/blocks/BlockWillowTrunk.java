@@ -1,7 +1,7 @@
 package org.betterx.betternether.blocks;
 
-import org.betterx.bclib.blocks.BlockProperties;
-import org.betterx.bclib.blocks.BlockProperties.TripleShape;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import org.betterx.betternether.blocks.BNBlockProperties.TripleShape;
 import org.betterx.bclib.interfaces.tools.AddMineableAxe;
 import org.betterx.betternether.blocks.materials.Materials;
 

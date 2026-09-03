@@ -1,6 +1,6 @@
 package org.betterx.betternether.items;
 
-import org.betterx.bclib.items.BaseArmorItem;
+import net.minecraft.world.item.ArmorItem;
 import org.betterx.betternether.interfaces.InitialStackStateProvider;
 import org.betterx.betternether.items.materials.BNArmorMaterial;
 import org.betterx.betternether.registry.NetherEnchantments;
@@ -13,7 +13,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 import java.util.Map;
 
-public class NetherArmor extends BaseArmorItem implements InitialStackStateProvider {
+public class NetherArmor extends ArmorItem implements InitialStackStateProvider {
     public NetherArmor(ArmorMaterial material, Type type) {
         super(material, type, NetherItems.defaultSettings().fireResistant());
     }

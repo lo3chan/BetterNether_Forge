@@ -1,6 +1,6 @@
 package org.betterx.betternether.blocks;
 
-import org.betterx.bclib.blocks.FeatureSaplingBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.registry.features.configured.NetherTrees;
 import org.betterx.betternether.world.features.GloomwoodTreeFeature;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class BlockGloomwoodSapling extends FeatureSaplingBlock implements BonemealableBlock {
+public class BlockGloomwoodSapling extends SaplingBlock implements BonemealableBlock {
     public BlockGloomwoodSapling(BlockBehaviour.Properties properties) {
         super(properties, state -> NetherTrees.GLOOMWOOD_TREE);
     }

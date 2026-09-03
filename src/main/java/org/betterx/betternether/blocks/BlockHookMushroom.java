@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 
-public class BlockHookMushroom extends BaseBlockMold implements SurvivesOnNetherrack, BehaviourPlant {
+public class BlockHookMushroom extends BlockMold implements SurvivesOnNetherrack, BehaviourPlant {
     public BlockHookMushroom() {
         super(Materials.makeNetherGrass(MapColor.COLOR_PINK)
                        .lightLevel(s -> 13)

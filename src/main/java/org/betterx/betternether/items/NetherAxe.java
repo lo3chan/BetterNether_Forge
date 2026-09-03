@@ -1,6 +1,6 @@
 package org.betterx.betternether.items;
 
-import org.betterx.bclib.items.tool.BaseAxeItem;
+import net.minecraft.world.item.AxeItem;
 import org.betterx.betternether.interfaces.InitialStackStateProvider;
 import org.betterx.betternether.items.materials.BNToolMaterial;
 import org.betterx.betternether.registry.NetherEnchantments;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Map;
 
-public class NetherAxe extends BaseAxeItem implements InitialStackStateProvider {
+public class NetherAxe extends AxeItem implements InitialStackStateProvider {
     public NetherAxe(Tier material, float attackDamage, float attackSpeed) {
         super(material, attackDamage, attackSpeed, NetherItems.defaultSettings().fireResistant());
     }

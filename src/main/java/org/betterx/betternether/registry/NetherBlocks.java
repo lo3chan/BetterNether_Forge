@@ -1,7 +1,7 @@
 package org.betterx.betternether.registry;
 
 import org.betterx.bclib.api.v3.tag.BCLBlockTags;
-import org.betterx.bclib.blocks.*;
+
 import org.betterx.bclib.complexmaterials.set.wood.BarStool;
 import org.betterx.bclib.complexmaterials.set.wood.Chair;
 import org.betterx.bclib.complexmaterials.set.wood.Taburet;

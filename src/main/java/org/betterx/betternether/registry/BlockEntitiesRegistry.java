@@ -1,7 +1,7 @@
 package org.betterx.betternether.registry;
 
-import org.betterx.bclib.blocks.BaseBarrelBlock;
-import org.betterx.bclib.blocks.BaseChestBlock;
+import net.minecraft.world.level.block.BarrelBlock;
+import net.minecraft.world.level.block.ChestBlock;
 import org.betterx.betternether.BetterNether;
 import org.betterx.betternether.blockentities.BNBrewingStandBlockEntity;
 import org.betterx.betternether.blockentities.BlockEntityChestOfDrawers;

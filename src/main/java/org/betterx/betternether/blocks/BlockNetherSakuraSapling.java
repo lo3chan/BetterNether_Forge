@@ -1,7 +1,7 @@
 package org.betterx.betternether.blocks;
 
 import org.betterx.bclib.behaviours.interfaces.BehaviourSapling;
-import org.betterx.bclib.blocks.FeatureHangingSaplingBlock;
+import net.minecraft.world.level.block.Block;
 import org.betterx.betternether.interfaces.SurvivesOnNetherrack;
 import org.betterx.betternether.registry.features.configured.NetherTrees;
 
@@ -10,7 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class BlockNetherSakuraSapling extends FeatureHangingSaplingBlock implements BonemealableBlock, SurvivesOnNetherrack, BehaviourSapling {
+public class BlockNetherSakuraSapling extends Block implements BonemealableBlock, SurvivesOnNetherrack, BehaviourSapling {
     public BlockNetherSakuraSapling() {
         super((BlockState state) -> NetherTrees.SAKURA_TREE);
     }

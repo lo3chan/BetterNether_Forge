@@ -2,8 +2,8 @@ package org.betterx.betternether.blocks;
 
 import org.betterx.bclib.behaviours.BehaviourBuilders;
 import org.betterx.bclib.behaviours.interfaces.BehaviourVine;
-import org.betterx.bclib.blocks.BlockProperties;
-import org.betterx.bclib.items.tool.BaseShearsItem;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.item.ShearsItem;
 import org.betterx.bclib.util.LootUtil;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.MHelper;

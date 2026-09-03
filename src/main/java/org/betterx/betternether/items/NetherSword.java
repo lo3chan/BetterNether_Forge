@@ -1,6 +1,6 @@
 package org.betterx.betternether.items;
 
-import org.betterx.bclib.items.tool.BaseSwordItem;
+import net.minecraft.world.item.SwordItem;
 import org.betterx.betternether.interfaces.InitialStackStateProvider;
 import org.betterx.betternether.items.materials.BNToolMaterial;
 import org.betterx.betternether.registry.NetherEnchantments;
@@ -13,7 +13,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 import java.util.Map;
 
-public class NetherSword extends BaseSwordItem implements InitialStackStateProvider {
+public class NetherSword extends SwordItem implements InitialStackStateProvider {
     public NetherSword(Tier material, float attackDamage, float attackSpeed) {
         super(material, (int) attackDamage, attackSpeed, NetherItems.defaultSettings().fireResistant());
     }

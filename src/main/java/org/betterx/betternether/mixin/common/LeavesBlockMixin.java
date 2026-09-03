@@ -1,6 +1,6 @@
 package org.betterx.betternether.mixin.common;
 
-import org.betterx.bclib.items.tool.BaseShearsItem;
+import net.minecraft.world.item.ShearsItem;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;

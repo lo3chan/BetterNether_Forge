@@ -1,7 +1,7 @@
 package org.betterx.betternether.world.features;
 
 import org.betterx.bclib.api.v3.levelgen.features.UserGrowableFeature;
-import org.betterx.bclib.blocks.BlockProperties.TripleShape;
+import org.betterx.betternether.blocks.BNBlockProperties.TripleShape;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.blocks.BNBlockProperties;
 import org.betterx.betternether.blocks.BlockJellyfishMushroom;

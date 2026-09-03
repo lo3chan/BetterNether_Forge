@@ -1,6 +1,6 @@
 package org.betterx.betternether.world.features;
 
-import org.betterx.bclib.blocks.BlockProperties.TripleShape;
+import org.betterx.betternether.blocks.BNBlockProperties.TripleShape;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.blocks.RubeusLog;
 import org.betterx.betternether.registry.NetherBlocks;

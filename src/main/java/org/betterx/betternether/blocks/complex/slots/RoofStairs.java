@@ -1,6 +1,6 @@
 package org.betterx.betternether.blocks.complex.slots;
 
-import org.betterx.bclib.blocks.BaseStairsBlock;
+import net.minecraft.world.level.block.StairBlock;
 import org.betterx.bclib.complexmaterials.ComplexMaterial;
 import org.betterx.bclib.complexmaterials.WoodenComplexMaterial;
 import org.betterx.bclib.complexmaterials.entry.SimpleMaterialSlot;

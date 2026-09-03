@@ -1,6 +1,6 @@
 package org.betterx.betternether.items;
 
-import org.betterx.bclib.items.tool.BaseHoeItem;
+import net.minecraft.world.item.HoeItem;
 import org.betterx.betternether.interfaces.InitialStackStateProvider;
 import org.betterx.betternether.items.materials.BNToolMaterial;
 import org.betterx.betternether.registry.NetherEnchantments;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Map;
 
-public class NetherHoe extends BaseHoeItem implements InitialStackStateProvider {
+public class NetherHoe extends HoeItem implements InitialStackStateProvider {
     public NetherHoe(Tier material, float attackDamage, float attackSpeed) {
         super(material, (int) attackDamage, attackSpeed, NetherItems.defaultSettings().fireResistant());
     }

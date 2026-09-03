@@ -9,7 +9,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 
-public class BlockSoulLilySapling extends BaseBlockCommonSapling implements SurvivesOnSoulGroundOrFarmLand, BehaviourSapling {
+public class BlockSoulLilySapling extends BlockCommonSapling implements SurvivesOnSoulGroundOrFarmLand, BehaviourSapling {
     public BlockSoulLilySapling() {
         super(NetherBlocks.SOUL_LILY, MapColor.COLOR_ORANGE);
     }

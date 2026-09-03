@@ -1,7 +1,7 @@
 package org.betterx.betternether.blocks;
 
 import org.betterx.bclib.behaviours.interfaces.BehaviourSapling;
-import org.betterx.bclib.blocks.FeatureSaplingBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import org.betterx.betternether.BlocksHelper;
 import org.betterx.betternether.interfaces.SurvivesOnNetherMycelium;
 import org.betterx.betternether.registry.features.configured.NetherTrees;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 
-public class BlockMushroomFirSapling extends FeatureSaplingBlock implements BonemealableBlock, SurvivesOnNetherMycelium, BehaviourSapling {
+public class BlockMushroomFirSapling extends SaplingBlock implements BonemealableBlock, SurvivesOnNetherMycelium, BehaviourSapling {
 
     public BlockMushroomFirSapling() {
         super((BlockState state) -> NetherTrees.MUSHROOM_FIR);

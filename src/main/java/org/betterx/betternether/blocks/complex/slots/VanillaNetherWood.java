@@ -1,6 +1,6 @@
 package org.betterx.betternether.blocks.complex.slots;
 
-import org.betterx.bclib.blocks.BaseBookshelfBlock;
+import net.minecraft.world.level.block.Block;
 import org.betterx.bclib.complexmaterials.WoodenComplexMaterial;
 import org.betterx.bclib.complexmaterials.entry.SlotMap;
 import org.betterx.bclib.complexmaterials.set.wood.Bookshelf;

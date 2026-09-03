@@ -3,7 +3,7 @@ package org.betterx.betternether.items.complex;
 import org.betterx.bclib.api.v2.advancement.AdvancementManager;
 import org.betterx.bclib.items.complex.EquipmentDescription;
 import org.betterx.bclib.items.complex.EquipmentSet;
-import org.betterx.bclib.items.tool.BaseShearsItem;
+import net.minecraft.world.item.ShearsItem;
 import org.betterx.betternether.BetterNether;
 import org.betterx.betternether.items.*;
 import org.betterx.betternether.items.materials.BNToolMaterial;

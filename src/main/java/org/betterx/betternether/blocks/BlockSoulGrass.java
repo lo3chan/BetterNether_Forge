@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.api.distmarker.Dist;
 import net.neoforged.neoforge.api.distmarker.OnlyIn;
 
-public class BlockSoulGrass extends BaseBlockNetherGrass.OnEverything  {
+public class BlockSoulGrass extends BlockNetherGrass.OnEverything  {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
         if (random.nextInt(4) == 0) {

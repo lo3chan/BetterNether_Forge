@@ -1,6 +1,6 @@
 package org.betterx.betternether.items;
 
-import org.betterx.bclib.items.tool.BasePickaxeItem;
+import net.minecraft.world.item.PickaxeItem;
 import org.betterx.betternether.interfaces.InitialStackStateProvider;
 import org.betterx.betternether.items.materials.BNToolMaterial;
 import org.betterx.betternether.registry.NetherEnchantments;
@@ -14,7 +14,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 
 import java.util.Map;
 
-public class NetherPickaxe extends BasePickaxeItem implements InitialStackStateProvider {
+public class NetherPickaxe extends PickaxeItem implements InitialStackStateProvider {
     public NetherPickaxe(Tier material, float attackDamage, float attackSpeed) {
         super(material, (int) attackDamage, attackSpeed, NetherItems.defaultSettings().fireResistant());
     }
